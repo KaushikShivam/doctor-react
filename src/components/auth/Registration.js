@@ -14,19 +14,26 @@ class Registration extends Component {
 
   handleSubmit = e => {
     const { email, password, password_confirmation } = this.state;
-    axios.post(
-      'https://localhost:3001/registrations',
-      {
-        user: {
-          email,
-          password,
-          password_confirmation
+    axios
+      .post(
+        'https://localhost:3001/registrations',
+        {
+          user: {
+            email,
+            password,
+            password_confirmation
+          }
+        },
+        {
+          withCredentials: true
         }
-      },
-      {
-        withCredentials: true
-      }
-    );
+      )
+      .then(response => {
+        console.log('responseeee', response);
+      })
+      .catch(error => {
+        console.log('errorrr', error);
+      });
     e.preventDefault();
   };
 
