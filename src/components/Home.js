@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Home</h1>
+        <h1>Home = {this.props.loggedInStatus}</h1>
         <Registration />
       </div>
     );
