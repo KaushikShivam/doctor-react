@@ -29,7 +29,9 @@ class Registration extends Component {
         }
       )
       .then(response => {
-        console.log('responseeee', response);
+        if (response.data.status === 'created') {
+          this.props.handleSuccessfulAuth(response.data);
+        }
       })
       .catch(error => {
         console.log('errorrr', error);
