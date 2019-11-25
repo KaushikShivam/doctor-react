@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
 
 import Home from './Home';
@@ -13,6 +14,39 @@ class App extends Component {
       user: {}
     };
   }
+
+  componentDidMount() {
+    this.checkLoginStatus();
+  }
+
+  checkLoginStatus = () => {
+    axios
+      .get('http://localhost:3001/logged_in', { withCredentials: true })
+      .then(response => {
+        console.log(response);
+        if (
+          response.data.logged_in &&
+          this.state.loggedInStatus === 'NOT_LOGGED_IN'
+        ) {
+          this.setState({
+            loggedInStatus: 'LOGGED_IN',
+            user: response.data.user
+          });
+        } else if (
+          !response.data.logged_in &&
+          this.state.loggedInStatus === 'LOGGED_IN'
+        ) {
+          this.setState({
+            loggedInStatus: 'NOT_LOGGED_IN',
+            user: {}
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   handleLogin = data => {
     this.setState({
       loggedInStatus: 'LOGGED_IN',
