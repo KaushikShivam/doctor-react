@@ -5,6 +5,7 @@ import './App.css';
 
 import Home from './Home';
 import Dashboard from './Dashboard';
+import DoctorsList from './DoctorsList';
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +19,13 @@ class App extends Component {
   componentDidMount() {
     this.checkLoginStatus();
   }
+
+  handleLogout = () => {
+    this.setState({
+      loggedInStatus: 'NOT_LOGGED_IN',
+      user: {}
+    });
+  };
 
   checkLoginStatus = () => {
     axios
@@ -65,6 +73,7 @@ class App extends Component {
               <Home
                 {...props}
                 handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
                 loggedInStatus={this.state.loggedInStatus}
               />
             )}
@@ -79,6 +88,8 @@ class App extends Component {
               />
             )}
           />
+
+          <Route exact path='/doctors' Component={DoctorsList} />
         </Switch>
       </div>
     );
