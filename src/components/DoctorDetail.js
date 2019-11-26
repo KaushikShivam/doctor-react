@@ -68,8 +68,7 @@ class DoctorDetail extends Component {
             </div>
           </div>
         </div>
-        {/* tab */}
-        <div className="container d-flex">
+        <div className="container d-flex tab-content">
           <button
             className={`tab flex-grow-1 ${currentTab === 0 ? 'tab-focus' : ''}`}
             id="tab-0"
