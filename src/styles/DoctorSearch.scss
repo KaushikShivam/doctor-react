@@ -1,0 +1,38 @@
+.DoctorSearch {
+  position: relative;
+  &-nav {
+    background-color: #e0fdf7;
+    height: 10rem;
+    padding: 3rem 1rem 5rem 1rem;
+    align-items: center;
+
+    .title {
+      color: #47b7a7;
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+    input {
+      border: none;
+      background-color: white;
+      width: 80%;
+      padding: 2rem;
+      border: 1px solid rgba(172, 163, 163, 0.466);
+      border-radius: 500px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      outline: none;
+      box-shadow: 2px 4px 8px rgba(172, 163, 163, 0.466);
+      margin-top: -3rem;
+      border: 2px solid transparent;
+      &:focus {
+        border-color: #47b7a7;
+      }
+    }
+  }
+}
