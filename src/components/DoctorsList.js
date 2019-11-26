@@ -6,6 +6,11 @@ class DoctorsList extends Component {
     return (
       <div className="container">
         <Doctor />
+        <Doctor />
+        <Doctor />
+        <Doctor />
+        <Doctor />
+        <Doctor />
       </div>
     );
   }
