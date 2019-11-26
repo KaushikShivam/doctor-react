@@ -6,6 +6,7 @@ import './App.css';
 import Home from './Home';
 import Dashboard from './Dashboard';
 import DoctorsList from './DoctorsList';
+import DoctorDetail from './DoctorDetail';
 
 class App extends Component {
   constructor(props) {
@@ -64,11 +65,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <Switch>
           <Route
             exact
-            path='/'
+            path="/"
             render={props => (
               <Home
                 {...props}
@@ -80,7 +81,7 @@ class App extends Component {
           />
           <Route
             exact
-            path='/dashboard'
+            path="/dashboard"
             render={props => (
               <Dashboard
                 {...props}
@@ -89,7 +90,8 @@ class App extends Component {
             )}
           />
 
-          <Route exact path='/doctors' component={DoctorsList} />
+          <Route exact path="/doctors" component={DoctorsList} />
+          <Route exact path="/doctors/:id" component={DoctorDetail} />
         </Switch>
       </div>
     );

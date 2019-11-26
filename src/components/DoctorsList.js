@@ -21,6 +21,7 @@ class DoctorsList extends Component {
           </button>
         </div>
         <div className="container">
+          <h4 className="result-title">Results showing General Doctors</h4>
           <Doctor />
           <Doctor />
           <Doctor />
