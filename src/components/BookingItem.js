@@ -28,9 +28,16 @@ const BookingItem = () => {
                 <span>126</span>
               </p>
             </div>
-            <Link to="/doctors/2" className="d-flex justify-content-center">
-              VIEW PROFILE
-            </Link>
+            <div className="book-info">
+              <h6>Booking Information:</h6>
+              <p>
+                Date - <span>22 Dec, 2019</span>
+              </p>
+              <p className="book-time">
+                Time - <span>09:00 PM</span>
+              </p>
+              <Link to="/doctors/2">VIEW PROFILE</Link>
+            </div>
           </div>
           <div>
             <img src={share} alt="share icon" />
