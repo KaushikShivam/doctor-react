@@ -28,4 +28,20 @@
       font-size: 1.5rem;
     }
   }
+
+  .filter {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -3rem;
+    margin-right: 1.5rem;
+    button {
+      background: linear-gradient(#47b7a7, #266a61);
+      border-radius: 50%;
+      padding: 1.5rem;
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  }
 }

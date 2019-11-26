@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Doctor from './Doctor';
 import leftArrow from '../assets/images/left-arrow.png';
 import downArrow from '../assets/images/sort-down.png';
+import filter from '../assets/images/filter.png';
 
 class DoctorsList extends Component {
   render() {
@@ -13,6 +14,11 @@ class DoctorsList extends Component {
             General Doctor <img src={downArrow} alt="down Arrow" />
           </h2>
           <p className="location">Bangalore</p>
+        </div>
+        <div className="filter">
+          <button type="submit">
+            <img src={filter} alt="filter button" />
+          </button>
         </div>
         <div className="container">
           <Doctor />
