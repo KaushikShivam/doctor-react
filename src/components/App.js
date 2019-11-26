@@ -7,6 +7,7 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import DoctorsList from './DoctorsList';
 import DoctorDetail from './DoctorDetail';
+import DoctorBooking from './DoctorBooking';
 
 class App extends Component {
   constructor(props) {
@@ -92,6 +93,7 @@ class App extends Component {
 
           <Route exact path="/doctors" component={DoctorsList} />
           <Route exact path="/doctors/:id" component={DoctorDetail} />
+          <Route exact path="/book" component={DoctorBooking} />
         </Switch>
       </div>
     );
