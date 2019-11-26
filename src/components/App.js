@@ -89,7 +89,7 @@ class App extends Component {
             )}
           />
 
-          <Route exact path='/doctors' Component={DoctorsList} />
+          <Route exact path='/doctors' component={DoctorsList} />
         </Switch>
       </div>
     );
