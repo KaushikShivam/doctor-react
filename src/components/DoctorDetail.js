@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import DoctorInfo from './DoctorInfo';
 import DoctorFeedback from './DoctorFeedback';
+import ClinicInfo from './ClinicInfo';
 
 import leftWhite from '../assets/images/leftWhite.png';
 import email from '../assets/images/email.png';
@@ -44,7 +45,8 @@ class DoctorDetail extends Component {
         {/* tab */}
         {/* content */}
         {/* <DoctorInfo /> */}
-        <DoctorFeedback />
+        {/* <DoctorFeedback /> */}
+        <ClinicInfo />
       </div>
     );
   }

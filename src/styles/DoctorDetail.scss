@@ -108,4 +108,24 @@
       color: rgba(0, 0, 0, 0.459);
     }
   }
+
+  &-clinic {
+    .phone {
+      font-size: 1.7rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .address {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.459);
+    }
+
+    .map {
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
