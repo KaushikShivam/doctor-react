@@ -10,6 +10,31 @@ import like from '../assets/images/like.png';
 import callAnswer from '../assets/images/call-answer.png';
 
 class DoctorDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTab: 0
+    };
+  }
+
+  handleClick = e => {
+    const id = parseInt(e.target.id.split('-')[1]);
+    this.setState({ currentTab: id });
+  };
+
+  renderTab = () => {
+    switch (this.state.currentTab) {
+      case 0:
+        return <DoctorInfo />;
+      case 1:
+        return <ClinicInfo />;
+      case 2:
+        return <DoctorFeedback />;
+      default:
+        break;
+    }
+  };
+
   render() {
     return (
       <div className="DoctorDetail">
@@ -43,10 +68,30 @@ class DoctorDetail extends Component {
           </div>
         </div>
         {/* tab */}
-        {/* content */}
-        {/* <DoctorInfo /> */}
-        {/* <DoctorFeedback /> */}
-        <ClinicInfo />
+        <div className="container d-flex">
+          <button
+            className="tab flex-grow-1"
+            id="tab-0"
+            onClick={this.handleClick}
+          >
+            Doctor's Info
+          </button>
+          <button
+            className="tab flex-grow-1"
+            id="tab-1"
+            onClick={this.handleClick}
+          >
+            Clinic's Info
+          </button>
+          <button
+            className="tab flex-grow-1"
+            id="tab-2"
+            onClick={this.handleClick}
+          >
+            Feedback
+          </button>
+        </div>
+        {this.renderTab()}
       </div>
     );
   }
