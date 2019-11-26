@@ -1,6 +1,5 @@
 @import './Doctor';
-
-// $color-primary: #47b7a7;
+@import './DoctorList';
 
 * {
   margin: 0;
@@ -16,4 +15,5 @@ body {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
   font-size: 1rem;
+  color: #29303a;
 }
