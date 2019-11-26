@@ -4,7 +4,7 @@ import Doctor from './Doctor';
 class DoctorsList extends Component {
   render() {
     return (
-      <div className='container'>
+      <div className="container">
         <Doctor />
       </div>
     );
