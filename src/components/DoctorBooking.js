@@ -34,6 +34,20 @@ class DoctorBooking extends Component {
           <img src={leftWhite} alt="Left arrow" />
           <h2>Make a Booking</h2>
         </div>
+        <div className="time">
+          <p>Select a Time:</p>
+          <TimePicker
+            showSecond={false}
+            defaultValue={moment()
+              .hour(0)
+              .minute(0)}
+            className="time-picker"
+            onChange={this.handleTimeChange}
+            format={'h:mm a'}
+            use12Hours
+            inputReadOnly
+          />
+        </div>
         <InfiniteCalendar
           theme={{
             selectionColor: '#47b7a7',
@@ -55,20 +69,7 @@ class DoctorBooking extends Component {
           disabledDays={[0, 6]}
           onSelect={this.handleDateSelect}
         />
-        <div className="time">
-          <p>Select a Time:</p>
-          <TimePicker
-            showSecond={false}
-            defaultValue={moment()
-              .hour(0)
-              .minute(0)}
-            className="time-picker"
-            onChange={this.handleTimeChange}
-            format={'h:mm a'}
-            use12Hours
-            inputReadOnly
-          />
-        </div>
+
         <div className="detail">
           <Link className="book-btn">Book Appointment</Link>
           <h5 className="title">Dr John Doe</h5>
