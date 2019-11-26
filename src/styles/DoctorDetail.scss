@@ -65,11 +65,30 @@
     }
   }
 
+  .tab {
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 2rem 2rem;
+    color: rgba(0, 0, 0, 0.548);
+    font-weight: bold;
+
+    &:focus {
+      outline: none;
+    }
+
+    &-focus {
+      border-bottom: 2px solid #47b7a7;
+      color: #47b7a7;
+    }
+  }
+
   &-information {
     text-align: left;
 
     .content {
       margin-bottom: 2rem;
+      padding-left: 2rem;
     }
     h6 {
       font-size: 1.5rem;

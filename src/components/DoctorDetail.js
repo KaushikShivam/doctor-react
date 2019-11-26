@@ -36,6 +36,7 @@ class DoctorDetail extends Component {
   };
 
   render() {
+    const { currentTab } = this.state;
     return (
       <div className="DoctorDetail">
         <div className="detail-card">
@@ -70,21 +71,21 @@ class DoctorDetail extends Component {
         {/* tab */}
         <div className="container d-flex">
           <button
-            className="tab flex-grow-1"
+            className={`tab flex-grow-1 ${currentTab === 0 ? 'tab-focus' : ''}`}
             id="tab-0"
             onClick={this.handleClick}
           >
             Doctor's Info
           </button>
           <button
-            className="tab flex-grow-1"
+            className={`tab flex-grow-1 ${currentTab === 1 ? 'tab-focus' : ''}`}
             id="tab-1"
             onClick={this.handleClick}
           >
             Clinic's Info
           </button>
           <button
-            className="tab flex-grow-1"
+            className={`tab flex-grow-1 ${currentTab === 2 ? 'tab-focus' : ''}`}
             id="tab-2"
             onClick={this.handleClick}
           >
