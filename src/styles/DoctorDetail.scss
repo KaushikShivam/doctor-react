@@ -1,5 +1,67 @@
 .DoctorDetail {
+  text-align: center;
+
   .detail-card {
     background: linear-gradient(#47b7a7, #266a61);
+    padding: 3.5rem 1rem 0 1rem;
+    align-items: center;
+  }
+
+  &-nav {
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  .location {
+    color: white;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    color: white;
+    margin-top: 3rem;
+  }
+
+  .cta {
+    display: block;
+    border: 2px solid white;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    padding: 1rem;
+  }
+
+  .avatar {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    margin: 1rem 2rem;
+  }
+
+  .category {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  .exp {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    justify-content: center;
+    margin-top: 2rem;
+    & > * {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 2px;
+    }
   }
 }
