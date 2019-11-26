@@ -92,6 +92,7 @@ class DoctorDetail extends Component {
           </button>
         </div>
         {this.renderTab()}
+        <Link className="book-btn">Book Appointment</Link>
       </div>
     );
   }

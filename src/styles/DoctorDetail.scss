@@ -151,4 +151,20 @@
       }
     }
   }
+
+  .book-btn {
+    color: white;
+    width: 50%;
+    text-decoration: none;
+    background: linear-gradient(to right bottom, #47b7a7, #266a61);
+    border-radius: 100px;
+    padding: 1.5rem 1rem;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 }
