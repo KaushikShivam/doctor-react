@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import DoctorInfo from './DoctorInfo';
+import DoctorFeedback from './DoctorFeedback';
+
 import leftWhite from '../assets/images/leftWhite.png';
 import email from '../assets/images/email.png';
 import like from '../assets/images/like.png';
@@ -38,6 +41,10 @@ class DoctorDetail extends Component {
             </div>
           </div>
         </div>
+        {/* tab */}
+        {/* content */}
+        {/* <DoctorInfo /> */}
+        <DoctorFeedback />
       </div>
     );
   }

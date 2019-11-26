@@ -64,4 +64,47 @@
       margin-right: 2px;
     }
   }
+
+  &-information {
+    text-align: left;
+
+    .content {
+      margin-bottom: 2rem;
+    }
+    h6 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    li {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: rgba(0, 0, 0, 0.459);
+    }
+  }
+
+  &-feedback {
+    text-align: left;
+
+    .content {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(114, 103, 103, 0.089);
+    }
+
+    .date {
+      font-size: 1.2rem;
+      color: rgba(0, 0, 0, 0.288);
+    }
+
+    h6 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: rgba(0, 0, 0, 0.459);
+    }
+  }
 }
