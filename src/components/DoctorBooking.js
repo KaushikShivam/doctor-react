@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InfiniteCalendar from 'react-infinite-calendar';
-import 'react-infinite-calendar/styles.css'; // only needs to be imported once
+import 'react-infinite-calendar/styles.css';
+import leftWhite from '../assets/images/leftWhite.png';
 
 class DoctorBooking extends Component {
   constructor(props) {
@@ -17,7 +18,11 @@ class DoctorBooking extends Component {
   render() {
     const { today } = this.state;
     return (
-      <div>
+      <div className="DoctorBooking">
+        <div className="DoctorBooking-nav">
+          <img src={leftWhite} alt="Left arrow" />
+          <h2>Make a Booking</h2>
+        </div>
         <InfiniteCalendar
           theme={{
             selectionColor: '#47b7a7',
