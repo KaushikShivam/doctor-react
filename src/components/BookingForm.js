@@ -17,6 +17,17 @@ class BookingForm extends Component {
           <p className="address">HSR Layout, Bangalore</p>
           <p className="date">4th Dec 2019, 11:30 AM</p>
         </div>
+        <form className="container">
+          <div className="form-field">
+            <label htmlFor="name">Your name</label>
+            <input
+              type="name"
+              name="name"
+              id="name"
+              placeholder="Enter your name"
+            />
+          </div>
+        </form>
       </div>
     );
   }

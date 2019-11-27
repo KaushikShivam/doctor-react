@@ -59,4 +59,29 @@
       border-bottom: 1px solid rgba(145, 141, 141, 0.432);
     }
   }
+
+  .form-field {
+    label {
+      color: #47b7a7;
+      font-size: 1.8rem;
+      font-weight: bold;
+      padding-left: 2rem;
+    }
+    input {
+      border: none;
+      background-color: white;
+      width: 100%;
+      padding: 2rem;
+      border: 1px solid rgba(172, 163, 163, 0.466);
+      border-radius: 500px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      outline: none;
+      box-shadow: 2px 4px 8px rgba(172, 163, 163, 0.466);
+      border: 2px solid transparent;
+      &:focus {
+        border-color: #47b7a7;
+      }
+    }
+  }
 }
