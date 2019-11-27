@@ -12,6 +12,7 @@ import Bookings from './Bookings';
 import DoctorSearch from './DoctorSearch';
 import BookingForm from './BookingForm';
 import BookingConfirm from './BookingConfirm';
+import AdminPanel from './AdminPanel';
 
 class App extends Component {
   constructor(props) {
@@ -102,6 +103,7 @@ class App extends Component {
           <Route exact path="/confirm" component={BookingConfirm} />
           <Route exact path="/bookings" component={Bookings} />
           <Route exact path="/search" component={DoctorSearch} />
+          <Route exact path="/admin" component={AdminPanel} />
         </Switch>
       </div>
     );
