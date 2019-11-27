@@ -11,7 +11,6 @@ class BookingForm extends Component {
           <h2 className="title">Booking Detail</h2>
         </div>
         <div className="detail">
-          {/* <Link className="book-btn">Book Appointment</Link> */}
           <h5 className="title">Dr John Doe</h5>
           <p className="category">General Physician</p>
           <p className="address">HSR Layout, Bangalore</p>
@@ -27,6 +26,25 @@ class BookingForm extends Component {
               placeholder="Enter your name"
             />
           </div>
+          <div className="form-field">
+            <label htmlFor="reason">Reason for visit</label>
+            <input
+              type="reason"
+              name="reason"
+              id="reason"
+              placeholder="Enter your reason for visit"
+            />
+          </div>
+          <div className="form-field">
+            <label htmlFor="patient">Patients name</label>
+            <input
+              type="patient"
+              name="patient"
+              id="patient"
+              placeholder="Enter patient's name"
+            />
+          </div>
+          <button className="book-btn">Confirm Booking</button>
         </form>
       </div>
     );
