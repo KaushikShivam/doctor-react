@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import leftArrow from '../assets/images/left-arrow.png';
 
 class BookingForm extends Component {
