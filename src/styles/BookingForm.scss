@@ -1,0 +1,62 @@
+.BookingForm {
+  &-nav {
+    background-color: #e0fdf7;
+    height: 10rem;
+    padding: 3rem 1rem;
+    align-items: center;
+
+    .left-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .title {
+      color: #47b7a7;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-left: 4rem;
+    }
+  }
+
+  .book-btn {
+    color: white;
+    width: 50%;
+    text-decoration: none;
+    background: linear-gradient(to right bottom, #47b7a7, #266a61);
+    border-radius: 100px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 4rem;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    .title {
+      font-size: 2rem;
+      margin-top: 3rem;
+    }
+
+    .address,
+    .category {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    .date {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .address {
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(145, 141, 141, 0.432);
+    }
+  }
+}
