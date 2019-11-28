@@ -30,7 +30,6 @@
     font-size: 1.5rem;
     font-weight: bold;
     width: 10rem;
-    border: 1px solid #47b7a7;
 
     &-full {
       color: white;
@@ -40,6 +39,7 @@
     &-border {
       color: #47b7a7;
       background-color: white;
+      border: 1px solid #47b7a7;
     }
   }
 }
