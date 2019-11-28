@@ -1,8 +1,33 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { REGISTER_SUCCESS, REGISTER_FAIL } from '../actions/types';
-import { BASE_URL, REGISTER } from '../../constants';
+import {
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
+  LOGGED_IN,
+  AUTH_ERROR
+} from '../actions/types';
+
+import { BASE_URL, REGISTER, STATUS } from '../../constants';
+
+//Check logged in status
+export const loggedIn = () => async dispatch => {
+  try {
+    const response = await axios.get(`${BASE_URL}${STATUS}`, {
+      withCredentials: true
+    });
+    if (response.data.logged_in) {
+      dispatch({
+        type: LOGGED_IN,
+        payload: response.data.user
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: AUTH_ERROR
+    });
+  }
+};
 
 // Register
 export const register = ({
