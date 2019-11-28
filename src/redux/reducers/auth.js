@@ -1,6 +1,8 @@
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
   LOGGED_IN,
   AUTH_ERROR
 } from '../actions/types';
@@ -14,8 +16,10 @@ const auth = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS:
       return { user: payload, isAuthenticated: true };
     case REGISTER_FAIL:
+    case LOGIN_FAIL:
     case AUTH_ERROR:
       return { user: null, isAuthenticated: false };
     case LOGGED_IN:

@@ -4,11 +4,13 @@ import { setAlert } from './alert';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
   LOGGED_IN,
   AUTH_ERROR
 } from '../actions/types';
 
-import { BASE_URL, REGISTER, STATUS } from '../../constants';
+import { BASE_URL, REGISTER, STATUS, LOGIN } from '../../constants';
 
 //Check logged in status
 export const loggedIn = () => async dispatch => {
@@ -54,9 +56,36 @@ export const register = ({
 
     if (response.data.status === 'created') {
       dispatch({ type: REGISTER_SUCCESS, payload: response.data.user });
+      dispatch(loggedIn);
     }
   } catch (error) {
     dispatch(setAlert(`${error}`));
     dispatch({ type: REGISTER_FAIL });
+  }
+};
+
+// Login
+export const login = ({ email, password }) => async dispatch => {
+  try {
+    const response = await axios.post(
+      `${BASE_URL}${LOGIN}`,
+      {
+        user: {
+          email,
+          password
+        }
+      },
+      {
+        withCredentials: true
+      }
+    );
+
+    if (response.data.status === 'created') {
+      dispatch({ type: LOGIN_SUCCESS, payload: response.data.user });
+      dispatch(loggedIn);
+    }
+  } catch (error) {
+    dispatch(setAlert(`${error}`));
+    dispatch({ type: LOGIN_FAIL });
   }
 };
