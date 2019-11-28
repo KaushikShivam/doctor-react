@@ -4,7 +4,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGGED_IN,
-  AUTH_ERROR
+  AUTH_ERROR,
+  LOG_OUT
 } from '../actions/types';
 
 const initialState = {
@@ -21,6 +22,7 @@ const auth = (state = initialState, action) => {
     case REGISTER_FAIL:
     case LOGIN_FAIL:
     case AUTH_ERROR:
+    case LOG_OUT:
       return { user: null, isAuthenticated: false };
     case LOGGED_IN:
       return { user: payload, isAuthenticated: true };

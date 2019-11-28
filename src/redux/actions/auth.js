@@ -7,10 +7,11 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGGED_IN,
-  AUTH_ERROR
+  AUTH_ERROR,
+  LOG_OUT
 } from '../actions/types';
 
-import { BASE_URL, REGISTER, STATUS, LOGIN } from '../../constants';
+import { BASE_URL, REGISTER, STATUS, LOGIN, LOGOUT } from '../../constants';
 
 //Check logged in status
 export const loggedIn = () => async dispatch => {
@@ -87,5 +88,19 @@ export const login = ({ email, password }) => async dispatch => {
   } catch (error) {
     dispatch(setAlert(`${error}`));
     dispatch({ type: LOGIN_FAIL });
+  }
+};
+
+//Log out
+export const logout = () => async dispatch => {
+  try {
+    const response = axios.delete(`${BASE_URL}${LOGOUT}`, {
+      withCredentials: true
+    });
+    if (response.data.logged_out) {
+      dispatch({ type: LOG_OUT });
+    }
+  } catch (error) {
+    dispatch(setAlert(`${error}`));
   }
 };
