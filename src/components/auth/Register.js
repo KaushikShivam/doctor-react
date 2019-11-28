@@ -1,17 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Register = () => {
+  const [formInfo, setFormInfo] = useState({
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: ''
+  });
+
+  const { name, email, password, password_confirmation } = formInfo;
+
+  const handleChange = e =>
+    setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (password !== password_confirmation) {
+      console.log('Passwords do not match');
+    } else {
+      console.log(formInfo);
+    }
+  };
+
   return (
     <div className="Register">
       <div className="container content">
         <h2>Create Account</h2>
-        <form>
+        <form onSubmit={e => handleSubmit(e)}>
           <div className="form-field">
             <label htmlFor="name">Your name</label>
             <input
               type="text"
               name="name"
               placeholder="Enter your name"
+              value={name}
+              onChange={e => handleChange(e)}
               required
             />
           </div>
@@ -21,6 +44,8 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Enter your email"
+              value={email}
+              onChange={e => handleChange(e)}
               required
             />
           </div>
@@ -30,6 +55,9 @@ const Register = () => {
               type="password"
               name="password"
               placeholder="Enter your password"
+              value={password}
+              onChange={e => handleChange(e)}
+              minLength="6"
               required
             />
           </div>
@@ -39,6 +67,9 @@ const Register = () => {
               type="password"
               name="password_confirmation"
               placeholder="Enter your password again"
+              value={password_confirmation}
+              onChange={e => handleChange(e)}
+              minLength="6"
               required
             />
           </div>
