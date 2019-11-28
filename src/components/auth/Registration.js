@@ -5,6 +5,7 @@ class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       email: '',
       password: '',
       password_confirmation: '',
@@ -13,12 +14,13 @@ class Registration extends Component {
   }
 
   handleSubmit = e => {
-    const { email, password, password_confirmation } = this.state;
+    const { name, email, password, password_confirmation } = this.state;
     axios
       .post(
         'http://localhost:3001/registrations',
         {
           user: {
+            name,
             email,
             password,
             password_confirmation
@@ -34,7 +36,7 @@ class Registration extends Component {
         }
       })
       .catch(error => {
-        console.log('errorrr', error);
+        console.log('error', error);
       });
     e.preventDefault();
   };
@@ -46,36 +48,44 @@ class Registration extends Component {
   };
 
   render() {
-    const { email, password, password_confirmation } = this.state;
+    const { name, email, password, password_confirmation } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
-            type='email'
-            name='email'
-            id='email'
+            type="name"
+            name="name"
+            id="name"
+            value={name}
+            onChange={this.handleChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
             value={email}
             onChange={this.handleChange}
             required
           />
           <input
-            type='password'
-            name='password'
-            id='password'
+            type="password"
+            name="password"
+            id="password"
             value={password}
             onChange={this.handleChange}
             required
           />
           <input
-            type='password'
-            name='password_confirmation'
-            id='password_confirmation'
+            type="password"
+            name="password_confirmation"
+            id="password_confirmation"
             value={password_confirmation}
             onChange={this.handleChange}
             required
           />
 
-          <button type='submit'>Register</button>
+          <button type="submit">Register</button>
         </form>
       </div>
     );
