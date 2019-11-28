@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { setAlert } from '../../redux/actions/alert';
 
-const Register = () => {
+const Register = props => {
   const [formInfo, setFormInfo] = useState({
     name: '',
     email: '',
@@ -16,7 +18,7 @@ const Register = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (password !== password_confirmation) {
-      console.log('Passwords do not match');
+      props.setAlert('Passwords do not match', 'danger');
     } else {
       console.log(formInfo);
     }
@@ -80,4 +82,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default connect(null, { setAlert })(Register);
