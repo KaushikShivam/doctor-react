@@ -30,8 +30,9 @@ class App extends Component {
           <Route exact path="/landing" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+
           <PrivateRoute exact path="/" component={DoctorSearch} />
-          <PrivateRoute exact path="/admin" component={AdminPanel} />
+          <Route exact path="/admin" component={AdminPanel} />
         </Switch>
       </Fragment>
     );

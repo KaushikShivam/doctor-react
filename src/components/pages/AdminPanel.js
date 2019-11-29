@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import leftArrow from '../../assets/images/left-arrow.png';
+import Navbar from '../layout/Navbar';
 
 class AdminPanel extends Component {
   render() {
     return (
       <div className="AdminPanel">
-        <div className="AdminPanel-nav d-flex">
-          <img className="left-icon" src={leftArrow} alt="Left icon" />
-          <h2 className="title">Booking Detail</h2>
-        </div>
+        <Navbar title="Admin Panel" bg="#e0fdf7" backBtn="/" />
+
         <form className="container">
           <div className="form-field">
             <label htmlFor="name">Doctor's name</label>
