@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import like from '../assets/images/like.png';
 import share from '../assets/images/share.png';
 
-const Doctor = ({
-  doctor: { id, name, category, description, fee, exp, likes, image }
-}) => {
+const Doctor = ({ doctor }) => {
+  const { id, name, category, description, fee, exp, likes, image } = doctor;
   return (
     <div className="Doctor">
       <div className="d-flex">
@@ -39,12 +38,21 @@ const Doctor = ({
       </div>
       <div className="Doctor-cta d-flex">
         <Link
-          to="/booking"
+          to={{
+            pathname: `/doctor/${id}/book`,
+            state: { doctor }
+          }}
           className="btn btn-border flex-grow-1 flex-md-grow-0"
         >
           Call
         </Link>
-        <Link to="/booking" className="btn btn-full flex-grow-1 flex-md-grow-0">
+        <Link
+          to={{
+            pathname: `/doctor/${id}/book`,
+            state: { doctor }
+          }}
+          className="btn btn-full flex-grow-1 flex-md-grow-0"
+        >
           Book
         </Link>
       </div>

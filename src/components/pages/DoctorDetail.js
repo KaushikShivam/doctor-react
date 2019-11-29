@@ -91,7 +91,13 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
             </button>
           </div>
           {renderTab(singleDoctor)}
-          <Link to={`/doctor/${singleDoctor.id}/book`} className="book-btn">
+          <Link
+            to={{
+              pathname: `/doctor/${singleDoctor.id}/book`,
+              state: { doctor: singleDoctor }
+            }}
+            className="book-btn"
+          >
             Book Appointment
           </Link>
         </div>
