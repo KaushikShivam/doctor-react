@@ -16,9 +16,7 @@ class DoctorBooking extends Component {
     this.state = {
       today: new Date(),
       selectedDate: new Date(),
-      time: moment()
-        .hour(0)
-        .minute(0)
+      time: null
     };
   }
   handleDateSelect = date => {
@@ -29,8 +27,25 @@ class DoctorBooking extends Component {
     this.setState({ time });
   };
 
+  handleSubmit = () => {
+    const { time, selectedDate } = this.state;
+    const { doctor } = this.props.location.state;
+    if (!time || !selectedDate) {
+      alert('Selecting date and time is manadatory');
+    } else {
+      this.props.history.push({
+        pathname: '/confirm-booking',
+        state: {
+          doctor,
+          date: moment(selectedDate).format('MMM Do, YYYY'),
+          time: time.format('HH:mm')
+        }
+      });
+    }
+  };
+
   render() {
-    const { today, time, selectedDate } = this.state;
+    const { today } = this.state;
     const { doctor } = this.props.location.state;
     return (
       <div className="DoctorBooking">
@@ -44,7 +59,9 @@ class DoctorBooking extends Component {
             <p>Select Time & Date:</p>
             <TimePicker
               showSecond={false}
-              defaultValue={time}
+              defaultValue={moment()
+                .hour(0)
+                .minute(0)}
               className="time-picker"
               onChange={this.handleTimeChange}
               format={'h:mm a'}
@@ -75,16 +92,9 @@ class DoctorBooking extends Component {
           />
 
           <div className="detail">
-            <Link
-              to={{
-                pathname: `/doctors/${doctor.id}/book/confirm`,
-                state: { doctor, time, selectedDate }
-              }}
-              onClick={this.handleSubmit}
-              className="book-btn"
-            >
+            <button onClick={this.handleSubmit} className="book-btn">
               Book Appointment
-            </Link>
+            </button>
             <h5 className="title">Dr {doctor.name}</h5>
             <p className="category">{doctor.category}</p>
             <p className="address">{doctor.address}</p>
