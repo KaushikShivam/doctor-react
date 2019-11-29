@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from '../layout/Navbar';
 
-const AdminPanel = () => {
+import { addDoctor } from '../../redux/actions/doctor';
+
+const AdminPanel = ({ addDoctor }) => {
   const [doctorData, setDoctorData] = useState({
     name: '',
     image: '',
@@ -31,6 +35,7 @@ const AdminPanel = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    addDoctor({ ...doctorData });
   };
 
   return (
@@ -155,10 +160,16 @@ const AdminPanel = () => {
           />
         </div>
 
-        <button className="book-btn">Add Doctor</button>
+        <button type="submit" className="book-btn">
+          Add Doctor
+        </button>
       </form>
     </div>
   );
 };
 
-export default AdminPanel;
+AdminPanel.propTypes = {
+  addDoctor: PropTypes.func.isRequired
+};
+
+export default connect(null, { addDoctor })(AdminPanel);
