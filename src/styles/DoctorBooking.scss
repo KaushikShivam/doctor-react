@@ -1,23 +1,4 @@
 .DoctorBooking {
-  &-nav {
-    background-color: #47b7a7;
-    padding: 3.5rem 1rem 0 1rem;
-    display: flex;
-    align-items: center;
-    img {
-      width: 2rem;
-      height: 2rem;
-    }
-    h2 {
-      font-size: 2rem;
-      color: white;
-      font-weight: bold;
-      flex-grow: 1;
-      width: 100%;
-      text-align: center;
-    }
-  }
-
   .time {
     background-color: #47b7a7;
     padding: 3.5rem 1rem 3.5rem 1rem;

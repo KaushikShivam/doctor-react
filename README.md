@@ -6,3 +6,4 @@ TODO
 4. Refactor PrivateRoute
 5. Refactor Doctor item
 6. Reference the desginer
+7. Check propTypes for all elements

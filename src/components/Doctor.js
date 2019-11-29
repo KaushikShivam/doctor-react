@@ -39,7 +39,7 @@ const Doctor = ({ doctor }) => {
       <div className="Doctor-cta d-flex">
         <Link
           to={{
-            pathname: `/doctor/${id}/book`,
+            pathname: `/doctors/${id}/book`,
             state: { doctor }
           }}
           className="btn btn-border flex-grow-1 flex-md-grow-0"
@@ -48,7 +48,7 @@ const Doctor = ({ doctor }) => {
         </Link>
         <Link
           to={{
-            pathname: `/doctor/${id}/book`,
+            pathname: `/doctors/${id}/book`,
             state: { doctor }
           }}
           className="btn btn-full flex-grow-1 flex-md-grow-0"

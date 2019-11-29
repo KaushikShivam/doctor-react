@@ -93,7 +93,7 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
           {renderTab(singleDoctor)}
           <Link
             to={{
-              pathname: `/doctor/${singleDoctor.id}/book`,
+              pathname: `/doctors/${singleDoctor.id}/book`,
               state: { doctor: singleDoctor }
             }}
             className="book-btn"
