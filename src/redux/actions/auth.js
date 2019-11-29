@@ -86,7 +86,7 @@ export const login = ({ email, password }) => async dispatch => {
       dispatch(loggedIn);
     }
   } catch (error) {
-    dispatch(setAlert(`${error}`));
+    dispatch(setAlert(`${error}`, 'danger'));
     dispatch({ type: LOGIN_FAIL });
   }
 };
@@ -101,6 +101,6 @@ export const logout = () => async dispatch => {
       dispatch({ type: LOG_OUT });
     }
   } catch (error) {
-    dispatch(setAlert(`${error}`));
+    dispatch(setAlert(`${error}`, 'danger'));
   }
 };

@@ -16,13 +16,12 @@ export const addDoctor = doctorObj => async dispatch => {
         withCredentials: true
       }
     );
-    if (response.data.status == 'success') {
-      dispatch({
-        type: ADD_DOCTOR
-      });
-      dispatch(setAlert('Doctor created Successfully', 'success'));
-    }
+
+    dispatch({
+      type: ADD_DOCTOR
+    });
+    dispatch(setAlert('Doctor created Successfully', 'success'));
   } catch (error) {
-    dispatch(setAlert(error, 'danger'));
+    dispatch(setAlert(`${error}`, 'danger'));
   }
 };
