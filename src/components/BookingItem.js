@@ -3,40 +3,41 @@ import { Link } from 'react-router-dom';
 import like from '../assets/images/like.png';
 import share from '../assets/images/share.png';
 
-const BookingItem = () => {
+const BookingItem = ({ patient, reason, date, time, doctor }) => {
   return (
     <div className="BookingItem">
       <div className="d-flex">
         <div className="BookingItem-img">
-          <img
-            src="https://www.w3schools.com/w3images/avatar6.png"
-            alt="Avatar"
-          />
+          <img src={doctor.image} alt="Avatar" />
         </div>
         <div className="BookingItem-info d-flex justify-content-between w-100">
           <div>
-            <h4 className="BookingItem-title">Dr. John Doe</h4>
-            <p className="BookingItem-category">General Physician</p>
-            <p className="BookingItem-description">
-              MD-General medicine, lorem ipsum
-            </p>
+            <h4 className="BookingItem-title">Dr. {doctor.name}</h4>
+            <p className="BookingItem-category">{doctor.category}</p>
+            <p className="BookingItem-description">{doctor.description}</p>
             <div className="BookingItem-exp d-flex">
-              <p>$200</p>
-              <p>14 yrs of experience</p>
+              <p>${doctor.fee}</p>
+              <p>{doctor.exp} yrs of experience</p>
               <p>
                 <img src={like} alt="likes" />
-                <span>126</span>
+                <span>{doctor.likes}</span>
               </p>
             </div>
             <div className="book-info">
               <h6>Booking Information:</h6>
               <p>
-                Date - <span>22 Dec, 2019</span>
+                Date - <span>{date}</span>
               </p>
               <p className="book-time">
-                Time - <span>09:00 PM</span>
+                Time - <span>{time}</span>
               </p>
-              <Link to="/doctors/2">VIEW PROFILE</Link>
+              <p>
+                Patient's name - <span>{patient}</span>
+              </p>
+              <p className="book-time">
+                Reason to visit - <span>{reason}</span>
+              </p>
+              <Link to={`/doctors/${doctor.id}`}>VIEW PROFILE</Link>
             </div>
           </div>
           <div>
