@@ -4,19 +4,37 @@ import PropTypes from 'prop-types';
 
 import Navbar from '../layout/Navbar';
 
+import { createAppointment } from '../../redux/actions/appointment';
+
 const BookingForm = props => {
   const { doctor, date, time } = props.location.state;
-  const { user } = props;
+  const { createAppointment, user } = props;
 
   const [formData, setFormData] = useState({
     patient: '',
     reason: ''
   });
 
+  const { patient, reason } = formData;
+
   const handleChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const { patient, reason } = formData;
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!patient || !reason) {
+      alert('Please fill in your reason and patient name');
+    } else {
+      const appointmentInfo = {
+        patient,
+        reason,
+        date,
+        time,
+        doctor_id: doctor.id
+      };
+      createAppointment(appointmentInfo);
+    }
+  };
 
   return (
     <div className="BookingForm">
@@ -27,7 +45,7 @@ const BookingForm = props => {
         <p className="address">{doctor.address}</p>
         <p className="date">{`${date} | ${time}`}</p>
       </div>
-      <form className="container">
+      <form onSubmit={e => handleSubmit(e)} className="container">
         <div className="form-field">
           <label htmlFor="name">Your name</label>
           <input
@@ -62,16 +80,19 @@ const BookingForm = props => {
             placeholder="Enter patient's name"
           />
         </div>
-        <button className="book-btn">Confirm Booking</button>
+        <input className="book-btn" type="submit" value="Confirm Booking" />
       </form>
     </div>
   );
 };
 
-BookingForm.propTypes = {};
+BookingForm.propTypes = {
+  user: PropTypes.object,
+  createAppointment: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   user: state.auth.user
 });
 
-export default connect(mapStateToProps)(BookingForm);
+export default connect(mapStateToProps, { createAppointment })(BookingForm);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import InfiniteCalendar from 'react-infinite-calendar';
 import TimePicker from 'rc-time-picker';
 import moment from 'moment';

@@ -3,7 +3,7 @@ import { CREATE_APPOINTMENT, GET_APPOINTMENTS } from './types';
 import { BASE_URL, APPOINTMENTS } from '../../constants';
 import { setAlert } from './alert';
 
-export const getAppointments = () => dispatch => {
+export const getAppointments = () => async dispatch => {
   try {
     const response = await axios.get(`${BASE_URL}${APPOINTMENTS}`, {
       withCredentials: true
@@ -17,22 +17,27 @@ export const getAppointments = () => dispatch => {
   }
 };
 
-
-export const createAppointment = appointmentObj => dispatch => {
+export const createAppointment = appointmentObj => async dispatch => {
   try {
-    const response = await axios.post(`${BASE_URL}${APPOINTMENTS}`, {
-      ...appointmentObj
-    }, {
-      withCredentials: true
-    })
-    
+    const response = await axios.post(
+      `${BASE_URL}${APPOINTMENTS}`,
+      {
+        data: {
+          attributes: {
+            ...appointmentObj
+          }
+        }
+      },
+      {
+        withCredentials: true
+      }
+    );
     dispatch({
       type: CREATE_APPOINTMENT,
       action: response.data.data
     });
     dispatch(setAlert('Doctor created Successfully', 'success'));
-    
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
   }
-}
+};
