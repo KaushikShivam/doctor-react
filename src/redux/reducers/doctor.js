@@ -1,4 +1,4 @@
-import { ADD_DOCTOR } from '../actions/types';
+import { ADD_DOCTOR, GET_DOCTORS } from '../actions/types';
 
 const initialState = {
   doctors: []
@@ -7,6 +7,8 @@ const initialState = {
 const doctor = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case GET_DOCTORS:
+      return { ...state, doctors: payload };
     case ADD_DOCTOR:
     default:
       return state;
