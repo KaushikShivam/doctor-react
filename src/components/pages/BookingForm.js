@@ -1,51 +1,77 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-class BookingForm extends Component {
-  render() {
-    return (
-      <div className="BookingForm">
-        <div className="BookingForm-nav d-flex">
-          <h2 className="title">Booking Detail</h2>
-        </div>
-        <div className="detail">
-          <h5 className="title">Dr John Doe</h5>
-          <p className="category">General Physician</p>
-          <p className="address">HSR Layout, Bangalore</p>
-          <p className="date">4th Dec 2019, 11:30 AM</p>
-        </div>
-        <form className="container">
-          <div className="form-field">
-            <label htmlFor="name">Your name</label>
-            <input
-              type="name"
-              name="name"
-              id="name"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div className="form-field">
-            <label htmlFor="reason">Reason for visit</label>
-            <input
-              type="reason"
-              name="reason"
-              id="reason"
-              placeholder="Enter your reason for visit"
-            />
-          </div>
-          <div className="form-field">
-            <label htmlFor="patient">Patients name</label>
-            <input
-              type="patient"
-              name="patient"
-              id="patient"
-              placeholder="Enter patient's name"
-            />
-          </div>
-          <button className="book-btn">Confirm Booking</button>
-        </form>
+import Navbar from '../layout/Navbar';
+
+const BookingForm = props => {
+  const { doctor, date, time } = props.location.state;
+  const { user } = props;
+
+  const [formData, setFormData] = useState({
+    patient: '',
+    reason: ''
+  });
+
+  const handleChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const { patient, reason } = formData;
+
+  return (
+    <div className="BookingForm">
+      <Navbar title="Confirm Booking" bg="#e0fdf7" backBtn={`/doctors`} />
+      <div className="detail">
+        <h5 className="title">Dr {doctor.name}</h5>
+        <p className="category">{doctor.category}</p>
+        <p className="address">{doctor.address}</p>
+        <p className="date">{`${date} | ${time}`}</p>
       </div>
-    );
-  }
-}
+      <form className="container">
+        <div className="form-field">
+          <label htmlFor="name">Your name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={user ? user.name : ''}
+            disabled
+          />
+        </div>
+        <div className="form-field">
+          <label htmlFor="reason">Reason for visit</label>
+          <input
+            type="text"
+            name="reason"
+            id="reason"
+            required
+            value={reason}
+            onChange={e => handleChange(e)}
+            placeholder="Enter your reason for visit"
+          />
+        </div>
+        <div className="form-field">
+          <label htmlFor="patient">Patients name</label>
+          <input
+            type="text"
+            name="patient"
+            id="patient"
+            required
+            value={patient}
+            onChange={e => handleChange(e)}
+            placeholder="Enter patient's name"
+          />
+        </div>
+        <button className="book-btn">Confirm Booking</button>
+      </form>
+    </div>
+  );
+};
 
-export default BookingForm;
+BookingForm.propTypes = {};
+
+const mapStateToProps = state => ({
+  user: state.auth.user
+});
+
+export default connect(mapStateToProps)(BookingForm);
