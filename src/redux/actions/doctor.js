@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, DOCTORS } from '../../constants';
-import { ADD_DOCTOR, GET_DOCTORS } from './types';
+import { ADD_DOCTOR, GET_DOCTORS, GET_SINGLE_DOCTOR } from './types';
 import { setAlert } from './alert';
 
 export const addDoctor = doctorObj => async dispatch => {
@@ -34,6 +34,20 @@ export const getDoctors = (filter = null) => async dispatch => {
     });
     dispatch({
       type: GET_DOCTORS,
+      payload: response.data.data
+    });
+  } catch (error) {
+    dispatch(setAlert(`${error}`, 'danger'));
+  }
+};
+
+export const getSingleDoctor = id => async dispatch => {
+  try {
+    const response = await axios.get(`${BASE_URL}${DOCTORS}/${id}`, {
+      withCredentials: true
+    });
+    dispatch({
+      type: GET_SINGLE_DOCTOR,
       payload: response.data.data
     });
   } catch (error) {
