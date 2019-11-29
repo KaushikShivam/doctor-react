@@ -10,7 +10,7 @@ export const getAppointments = () => async dispatch => {
     });
     dispatch({
       type: GET_APPOINTMENTS,
-      action: response.data.data
+      payload: response.data.data
     });
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
@@ -32,12 +32,13 @@ export const createAppointment = appointmentObj => async dispatch => {
         withCredentials: true
       }
     );
+
     dispatch({
       type: CREATE_APPOINTMENT,
-      action: response.data.data
+      payload: response.data.data.attributes
     });
     dispatch(setAlert('Doctor created Successfully', 'success'));
   } catch (error) {
-    dispatch(setAlert(`${error}`, 'danger'));
+    // dispatch(setAlert(`${error}`, 'danger'));
   }
 };

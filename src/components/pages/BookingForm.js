@@ -33,6 +33,7 @@ const BookingForm = props => {
         doctor_id: doctor.id
       };
       createAppointment(appointmentInfo);
+      props.history.push('/confirmed');
     }
   };
 
