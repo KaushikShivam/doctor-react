@@ -15,6 +15,7 @@ import Register from './auth/Register';
 // Pages
 import Landing from './pages/Landing';
 import DoctorSearch from './pages/DoctorSearch';
+import AdminPanel from './pages/AdminPanel';
 
 class App extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/" component={DoctorSearch} />
+          <PrivateRoute exact path="/admin" component={AdminPanel} />
         </Switch>
       </Fragment>
     );

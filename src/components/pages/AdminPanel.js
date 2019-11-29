@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import leftArrow from '../assets/images/left-arrow.png';
+import leftArrow from '../../assets/images/left-arrow.png';
 
 class AdminPanel extends Component {
   render() {
