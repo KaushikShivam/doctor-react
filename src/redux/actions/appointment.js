@@ -27,7 +27,7 @@ export const createAppointment = appointmentObj => dispatch => {
     })
     
     dispatch({
-      type: GET_APPOINTMENTS,
+      type: CREATE_APPOINTMENT,
       action: response.data.data
     });
     dispatch(setAlert('Doctor created Successfully', 'success'));
