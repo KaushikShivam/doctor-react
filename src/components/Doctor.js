@@ -4,14 +4,7 @@ import like from '../assets/images/like.png';
 import share from '../assets/images/share.png';
 
 const Doctor = ({
-  id,
-  name,
-  category,
-  description,
-  fee,
-  exp,
-  likes,
-  image
+  doctor: { id, name, category, description, fee, exp, likes, image }
 }) => {
   return (
     <div className="Doctor">

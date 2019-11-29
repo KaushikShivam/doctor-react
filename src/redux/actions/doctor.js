@@ -32,9 +32,12 @@ export const getDoctors = (filter = null) => async dispatch => {
     const response = await axios.get(`${BASE_URL}${DOCTORS}`, {
       withCredentials: true
     });
+    const doctors = response.data.data.map(doc => {
+      return { id: doc.id, ...doc.attributes };
+    });
     dispatch({
       type: GET_DOCTORS,
-      payload: response.data.data
+      payload: doctors
     });
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
