@@ -2,28 +2,9 @@
   text-align: center;
 
   .detail-card {
-    background: linear-gradient(#47b7a7, #266a61);
+    background: linear-gradient(#266a61, #47b7a7);
     padding: 3.5rem 1rem 0 1rem;
     align-items: center;
-  }
-
-  &-nav {
-    img {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
-
-  .location {
-    color: white;
-    margin-right: 1rem;
-    font-size: 1.5rem;
-  }
-
-  .title {
-    font-size: 2rem;
-    color: white;
-    margin-top: 3rem;
   }
 
   .cta {

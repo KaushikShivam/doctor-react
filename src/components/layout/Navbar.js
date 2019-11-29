@@ -11,7 +11,7 @@ const Navbar = ({ backBtn, title, bg, isAuthenticated, logout }) => {
   return (
     <div
       className="Navbar d-flex justify-content-between"
-      style={{ backgroundColor: bg }}
+      style={{ background: bg }}
     >
       <div className="d-flex">
         {backBtn && (

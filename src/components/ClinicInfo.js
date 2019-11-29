@@ -1,14 +1,10 @@
 import React from 'react';
 
-const ClinicInfo = () => {
+const ClinicInfo = ({ phone, address }) => {
   return (
     <div className="DoctorDetail-clinic container">
-      <p className="phone">+91-9711112922 | +91-9911976976</p>
-      <p className="address">
-        20 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-        molestias hic, quod earum eius sapiente laudantium voluptas, adipisci,
-        est quisquam deleniti!, New Delhi, India
-      </p>
+      <p className="phone">{phone}</p>
+      <p className="address">{address}</p>
       <div className="map">
         <h3>Address on Map:</h3>
         <img

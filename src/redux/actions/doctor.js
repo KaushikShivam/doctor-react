@@ -48,7 +48,7 @@ export const getSingleDoctor = id => async dispatch => {
     });
     dispatch({
       type: GET_SINGLE_DOCTOR,
-      payload: response.data.data
+      payload: { ...response.data.data.attributes, id: response.data.data.id }
     });
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
