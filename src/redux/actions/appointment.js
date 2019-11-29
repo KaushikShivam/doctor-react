@@ -5,7 +5,7 @@ import { setAlert } from './alert';
 
 const getAppointments = () => dispatch => {
   try {
-    const response = axios.get(`${BASE_URL}${APPOINTMENTS}`, {
+    const response = await axios.get(`${BASE_URL}${APPOINTMENTS}`, {
       withCredentials: true
     });
     dispatch({
@@ -16,3 +16,23 @@ const getAppointments = () => dispatch => {
     dispatch(setAlert(`${error}`, 'danger'));
   }
 };
+
+
+const createAppointment = appointmentObj => dispatch => {
+  try {
+    const response = axios.post(`${BASE_URL}${APPOINTMENTS}`, {
+      ...appointmentObj
+    }, {
+      withCredentials: true
+    })
+    
+    dispatch({
+      type: GET_APPOINTMENTS,
+      action: response.data.data
+    });
+    dispatch(setAlert('Doctor created Successfully', 'success'));
+    
+  } catch (error) {
+    dispatch(setAlert(`${error}`, 'danger'));
+  }
+}
