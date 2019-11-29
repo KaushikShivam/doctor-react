@@ -8,3 +8,6 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGGED_IN = 'LOGGED_IN';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOG_OUT = 'LOG_OUT';
+
+export const ADD_DOCTOR = 'ADD_DOCTOR';
+export const GET_DOCTORS = 'GET_DOCTORS';
