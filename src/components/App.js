@@ -21,6 +21,7 @@ import DoctorDetail from './pages/DoctorDetail';
 import DoctorBooking from './pages/DoctorBooking';
 import BookingForm from './pages/BookingForm';
 import BookingConfirm from './pages/BookingConfirm';
+import Bookings from './pages/Bookings';
 
 class App extends Component {
   componentDidMount() {
@@ -44,6 +45,7 @@ class App extends Component {
           <Route exact path="/doctors/:id/book" component={DoctorBooking} />
           <Route exact path="/confirm-booking" component={BookingForm} />
           <Route exact path="/confirmed" component={BookingConfirm} />
+          <Route exact path="/bookings" component={Bookings} />
         </Switch>
       </Fragment>
     );

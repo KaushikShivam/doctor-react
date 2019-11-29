@@ -7,7 +7,6 @@
 @import './Doctor';
 @import './DoctorDetail';
 @import './DoctorBooking';
-@import './Bookings';
 @import './BookingItem';
 @import './BookingForm';
 @import './BookingConfirm';
@@ -41,6 +40,7 @@ body {
     font-weight: bold;
     padding-left: 2rem;
   }
+
   input {
     border: none;
     background-color: white;
@@ -53,6 +53,7 @@ body {
     outline: none;
     box-shadow: 0 2px 4px rgba(172, 163, 163, 0.466);
     border: 2px solid transparent;
+
     &:focus {
       border-color: #47b7a7;
     }
