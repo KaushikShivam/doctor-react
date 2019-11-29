@@ -3,7 +3,7 @@ import { CREATE_APPOINTMENT, GET_APPOINTMENTS } from './types';
 import { BASE_URL, APPOINTMENTS } from '../../constants';
 import { setAlert } from './alert';
 
-const getAppointments = () => dispatch => {
+export const getAppointments = () => dispatch => {
   try {
     const response = await axios.get(`${BASE_URL}${APPOINTMENTS}`, {
       withCredentials: true
@@ -18,9 +18,9 @@ const getAppointments = () => dispatch => {
 };
 
 
-const createAppointment = appointmentObj => dispatch => {
+export const createAppointment = appointmentObj => dispatch => {
   try {
-    const response = axios.post(`${BASE_URL}${APPOINTMENTS}`, {
+    const response = await axios.post(`${BASE_URL}${APPOINTMENTS}`, {
       ...appointmentObj
     }, {
       withCredentials: true
