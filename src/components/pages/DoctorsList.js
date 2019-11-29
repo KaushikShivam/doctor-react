@@ -29,7 +29,7 @@ const DoctorsList = ({ doctors, getDoctors }) => {
             : 'Results showing Doctors'}
         </h4>
         {doctors.map(doctor => (
-          <Doctor key={doctor.id} {...doctor.attributes} />
+          <Doctor key={doctor.id} {...doctor.attributes} id={doctor.id} />
         ))}
       </div>
     </div>

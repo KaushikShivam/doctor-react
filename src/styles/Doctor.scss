@@ -61,18 +61,16 @@
     color: #47b7a7;
   }
 
-  button {
-    font-size: 1.5rem;
-    padding: 8px 50px;
-    border-radius: 100px;
-    font-weight: bold;
-  }
-
   &-cta {
     margin-top: 2rem;
   }
 
   .btn {
+    font-size: 1.5rem;
+    padding: 8px 50px;
+    border-radius: 100px;
+    font-weight: bold;
+
     &-border {
       border-color: #47b7a7;
       background-color: white;
