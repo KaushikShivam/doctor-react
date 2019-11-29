@@ -1,98 +1,164 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../layout/Navbar';
 
-class AdminPanel extends Component {
-  render() {
-    return (
-      <div className="AdminPanel">
-        <Navbar title="Admin Panel" bg="#e0fdf7" backBtn="/" />
+const AdminPanel = () => {
+  const [doctorData, setDoctorData] = useState({
+    name: '',
+    image: '',
+    category: '',
+    description: '',
+    fee: '',
+    exp: '',
+    likes: '',
+    phone: '',
+    address: ''
+  });
 
-        <form className="container">
-          <div className="form-field">
-            <label htmlFor="name">Doctor's name</label>
-            <input
-              type="name"
-              name="name"
-              id="name"
-              placeholder="Enter doctor's name"
-            />
-          </div>
+  const {
+    name,
+    image,
+    category,
+    description,
+    fee,
+    exp,
+    likes,
+    phone,
+    address
+  } = doctorData;
 
-          <div className="form-field">
-            <label htmlFor="category">Category</label>
-            <input
-              type="category"
-              name="category"
-              id="category"
-              placeholder="Enter doctor's category"
-            />
-          </div>
+  const handleChange = e =>
+    setDoctorData({ ...doctorData, [e.target.name]: e.target.value });
 
-          <div className="form-field">
-            <label htmlFor="description">Description</label>
-            <input
-              type="description"
-              name="description"
-              id="description"
-              placeholder="Enter doctor's description"
-            />
-          </div>
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
 
-          <div className="form-field">
-            <label htmlFor="fee">Doctor's Fee</label>
-            <input
-              type="fee"
-              name="fee"
-              id="fee"
-              placeholder="Enter doctor's fee"
-            />
-          </div>
+  return (
+    <div className="AdminPanel">
+      <Navbar title="Admin Panel" bg="#e0fdf7" backBtn="/" />
 
-          <div className="form-field">
-            <label htmlFor="exp">Doctor's Experience</label>
-            <input
-              type="exp"
-              name="exp"
-              id="exp"
-              placeholder="Enter doctor's experience"
-            />
-          </div>
+      <form className="container" onSubmit={e => handleSubmit(e)}>
+        <div className="form-field">
+          <label htmlFor="name">Doctor's name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={name}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's name"
+            required
+          />
+        </div>
 
-          <div className="form-field">
-            <label htmlFor="likes">Doctor's Likes</label>
-            <input
-              type="likes"
-              name="likes"
-              id="likes"
-              placeholder="Enter doctor's Likes"
-            />
-          </div>
+        <div className="form-field">
+          <label htmlFor="image">Doctor's image</label>
+          <input
+            type="text"
+            name="image"
+            id="image"
+            value={image}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's image url"
+            required
+          />
+        </div>
 
-          <div className="form-field">
-            <label htmlFor="phone">Doctor's Phone no.</label>
-            <input
-              type="phone"
-              name="phone"
-              id="phone"
-              placeholder="Enter doctor's phone"
-            />
-          </div>
+        <div className="form-field">
+          <label htmlFor="category">Category</label>
+          <input
+            type="text"
+            name="category"
+            id="category"
+            value={category}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's category"
+            required
+          />
+        </div>
 
-          <div className="form-field">
-            <label htmlFor="address">Doctor's Address</label>
-            <input
-              type="address"
-              name="address"
-              id="address"
-              placeholder="Enter doctor's Address"
-            />
-          </div>
+        <div className="form-field">
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            value={description}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's description"
+            required
+          />
+        </div>
 
-          <button className="book-btn">Add Doctor</button>
-        </form>
-      </div>
-    );
-  }
-}
+        <div className="form-field">
+          <label htmlFor="fee">Doctor's Fee</label>
+          <input
+            type="text"
+            name="fee"
+            id="fee"
+            value={fee}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's fee"
+            required
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="exp">Doctor's Experience</label>
+          <input
+            type="text"
+            name="exp"
+            id="exp"
+            value={exp}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's experience"
+            required
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="likes">Doctor's Likes</label>
+          <input
+            type="text"
+            name="likes"
+            id="likes"
+            value={likes}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's Likes"
+            required
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="phone">Doctor's Phone no.</label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            value={phone}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's phone"
+            required
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="address">Doctor's Address</label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            value={address}
+            onChange={e => handleChange(e)}
+            placeholder="Enter doctor's Address"
+            required
+          />
+        </div>
+
+        <button className="book-btn">Add Doctor</button>
+      </form>
+    </div>
+  );
+};
 
 export default AdminPanel;

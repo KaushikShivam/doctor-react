@@ -22,7 +22,6 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    console.log('jaja', isAuthenticated);
     return <Redirect to="/" />;
   }
 
