@@ -7,3 +7,4 @@ TODO
 5. Refactor Doctor item
 6. Reference the desginer
 7. Check propTypes for all elements
+8. Refactor detail component

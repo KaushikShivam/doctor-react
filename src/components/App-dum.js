@@ -10,7 +10,7 @@ import DoctorDetail from './DoctorDetail';
 import DoctorBooking from './DoctorBooking';
 import Bookings from './Bookings';
 import DoctorSearch from './DoctorSearch';
-import BookingForm from './BookingForm';
+import BookingForm from './pages/BookingForm';
 import BookingConfirm from './BookingConfirm';
 import AdminPanel from './AdminPanel';
 

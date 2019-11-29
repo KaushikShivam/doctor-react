@@ -19,6 +19,7 @@ import AdminPanel from './pages/AdminPanel';
 import DoctorsList from './pages/DoctorsList';
 import DoctorDetail from './pages/DoctorDetail';
 import DoctorBooking from './pages/DoctorBooking';
+import BookingForm from './pages/BookingForm';
 
 class App extends Component {
   componentDidMount() {
@@ -40,6 +41,7 @@ class App extends Component {
           <Route exact path="/doctors" component={DoctorsList} />
           <Route exact path="/doctors/:id" component={DoctorDetail} />
           <Route exact path="/doctors/:id/book" component={DoctorBooking} />
+          <Route exact path="/confirm-booking" component={BookingForm} />
         </Switch>
       </Fragment>
     );

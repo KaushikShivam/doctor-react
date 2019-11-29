@@ -50,7 +50,9 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
         <div>
           <div className="detail-card">
             <div className="DoctorDetail-info">
-              <h4 className="title">Dr. {singleDoctor.name}</h4>
+              <h4 className="title text-white font-weight-bold">
+                Dr. {singleDoctor.name}
+              </h4>
               <div className="d-flex justify-content-center align-items-center">
                 <img className="cta" src={callAnswer} alt="Call Answer" />
                 <img className="avatar" src={singleDoctor.image} alt="Avatar" />
