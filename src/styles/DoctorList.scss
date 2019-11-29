@@ -1,34 +1,4 @@
 .DoctorList {
-  &-nav {
-    background-color: #e0fdf7;
-    height: 10rem;
-    padding: 3rem 1rem;
-    align-items: center;
-
-    .left-icon {
-      width: 2rem;
-      height: 2rem;
-    }
-
-    .title {
-      color: #47b7a7;
-      font-size: 2rem;
-      font-weight: 500;
-      margin-left: 4rem;
-
-      img {
-        width: 1.3rem;
-        height: 1.3rem;
-      }
-    }
-    .location {
-      margin-left: auto;
-      color: #47b7a7;
-      margin-right: 1rem;
-      font-size: 1.5rem;
-    }
-  }
-
   .result-title {
     font-weight: bold;
     color: #47b7a7;
