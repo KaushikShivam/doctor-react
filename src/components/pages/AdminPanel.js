@@ -160,9 +160,7 @@ const AdminPanel = ({ addDoctor }) => {
           />
         </div>
 
-        <button type="submit" className="book-btn">
-          Add Doctor
-        </button>
+        <input type="submit" value="Add Doctor" className="book-btn" />
       </form>
     </div>
   );

@@ -83,7 +83,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               required
             />
           </div>
-          <button className="book-btn">Register</button>
+          <input className="book-btn" type="submit" value="Register" />
         </form>
       </div>
     </div>
