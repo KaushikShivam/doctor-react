@@ -94,7 +94,7 @@ export const login = ({ email, password }) => async dispatch => {
 //Log out
 export const logout = () => async dispatch => {
   try {
-    const response = axios.delete(`${BASE_URL}${LOGOUT}`, {
+    const response = await axios.delete(`${BASE_URL}${LOGOUT}`, {
       withCredentials: true
     });
     if (response.data.logged_out) {
