@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import like from '../assets/images/like.png';
 import share from '../assets/images/share.png';
 
-const Doctor = () => {
+const Doctor = ({ name }) => {
   return (
     <div className="Doctor">
       <div className="d-flex">
@@ -15,7 +15,7 @@ const Doctor = () => {
         </div>
         <div className="Doctor-info d-flex justify-content-between w-100">
           <div>
-            <h4 className="Doctor-title">Dr. John Doe</h4>
+            <h4 className="Doctor-title">Dr. {name}</h4>
             <p className="Doctor-category">General Physician</p>
             <p className="Doctor-description">
               MD-General medicine, lorem ipsum

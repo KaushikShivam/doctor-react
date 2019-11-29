@@ -34,7 +34,7 @@ export const getDoctors = (filter = null) => async dispatch => {
     });
     dispatch({
       type: GET_DOCTORS,
-      payload: response.data
+      payload: response.data.data
     });
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
