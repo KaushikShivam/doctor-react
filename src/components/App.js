@@ -17,6 +17,7 @@ import Landing from './pages/Landing';
 import DoctorSearch from './pages/DoctorSearch';
 import AdminPanel from './pages/AdminPanel';
 import DoctorsList from './pages/DoctorsList';
+import DoctorDetail from './pages/DoctorDetail';
 
 class App extends Component {
   componentDidMount() {
@@ -36,6 +37,7 @@ class App extends Component {
           {/* Make them private */}
           <Route exact path="/admin" component={AdminPanel} />
           <Route exact path="/doctors" component={DoctorsList} />
+          <Route exact path="/doctors/:id" component={DoctorDetail} />
         </Switch>
       </Fragment>
     );

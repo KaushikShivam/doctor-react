@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import DoctorInfo from './DoctorInfo';
-import DoctorFeedback from './DoctorFeedback';
-import ClinicInfo from './ClinicInfo';
+import DoctorInfo from '../DoctorInfo';
+import DoctorFeedback from '../DoctorFeedback';
+import ClinicInfo from '../ClinicInfo';
 
-import leftWhite from '../assets/images/leftWhite.png';
-import email from '../assets/images/email.png';
-import like from '../assets/images/like.png';
-import callAnswer from '../assets/images/call-answer.png';
+import leftWhite from '../../assets/images/leftWhite.png';
+import email from '../../assets/images/email.png';
+import like from '../../assets/images/like.png';
+import callAnswer from '../../assets/images/call-answer.png';
 
 class DoctorDetail extends Component {
   constructor(props) {
