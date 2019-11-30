@@ -1,20 +1,39 @@
 import React, { useState } from 'react';
-import logo from '../../assets/images/logo.png';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import logo from '../../assets/images/logo.png';
 import Navbar from '../layout/Navbar';
 
-const DoctorSearch = ({ categories }) => {
+import { setFilter } from '../../redux/actions/doctor';
+
+const DoctorSearch = ({ categories, setFilter, history }) => {
   const [search, setSearch] = useState('');
 
+  const handleFilter = (id = null) => {
+    let filterObj = {};
+    if (search != '') {
+      filterObj.name = search;
+    }
+    if (id != 'All' && id) {
+      filterObj.category = id;
+    }
+    setFilter(filterObj);
+    history.push('/doctors');
+  };
+
   const handleSubmit = e => {
-    alert(search);
+    e.preventDefault();
+    handleFilter();
   };
 
   const handleChange = e => {
     setSearch(e.target.value);
   };
 
-  const handleClick = e => {};
+  const handleClick = ({ target: { id } }) => {
+    handleFilter(id);
+  };
 
   return (
     <div className="DoctorSearch">
@@ -76,4 +95,8 @@ DoctorSearch.defaultProps = {
   ]
 };
 
-export default DoctorSearch;
+DoctorSearch.propTypes = {
+  setFilter: PropTypes.func.isRequired
+};
+
+export default connect(null, { setFilter })(DoctorSearch);

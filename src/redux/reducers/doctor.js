@@ -8,7 +8,7 @@ import {
 const initialState = {
   singleDoctor: null,
   doctors: [],
-  filter: null
+  filter: {}
 };
 
 const doctor = (state = initialState, action) => {
@@ -18,6 +18,8 @@ const doctor = (state = initialState, action) => {
       return { ...state, doctors: payload };
     case GET_SINGLE_DOCTOR:
       return { ...state, singleDoctor: payload };
+    case DOCTOR_FILTER:
+      return { ...state, filter: { ...payload } };
     case ADD_DOCTOR:
     default:
       return state;

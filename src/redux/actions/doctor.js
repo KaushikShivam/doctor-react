@@ -79,9 +79,9 @@ export const getSingleDoctor = id => async dispatch => {
   }
 };
 
-export const addDoctorFilter = obj => dispatch => {
-  dispatch({
+export const setFilter = obj => {
+  return {
     type: DOCTOR_FILTER,
     payload: obj
-  });
+  };
 };
