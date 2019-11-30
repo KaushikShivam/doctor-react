@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import logo from '../../assets/images/logo.png';
 
+import Navbar from '../layout/Navbar';
+
 class DoctorSearch extends Component {
   render() {
     const { categories } = this.props;
     return (
       <div className="DoctorSearch">
-        <div className="DoctorSearch-nav">
-          <h2 className="title">Doctors</h2>
-        </div>
+        <Navbar title="Search Doctors" bg="#e0fdf7" />
         <div className="container">
           <div className="search">
             <input
@@ -44,6 +44,7 @@ class DoctorSearch extends Component {
 
 DoctorSearch.defaultProps = {
   categories: [
+    'All',
     'General Doctor',
     'Mental Health',
     'Skin',

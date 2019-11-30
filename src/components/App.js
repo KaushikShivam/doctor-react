@@ -37,8 +37,8 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
 
-          <PrivateRoute exact path="/" component={DoctorSearch} />
           {/* Make them private */}
+          <Route exact path="/" component={DoctorSearch} />
           <Route exact path="/admin" component={AdminPanel} />
           <Route exact path="/doctors" component={DoctorsList} />
           <Route exact path="/doctors/:id" component={DoctorDetail} />
