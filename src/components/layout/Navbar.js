@@ -32,7 +32,7 @@ const Navbar = ({ backBtn, title, bg, isAuthenticated, logout }) => {
 };
 
 Navbar.propTypes = {
-  backBtn: PropTypes.string.isRequired,
+  backBtn: PropTypes.string,
   title: PropTypes.string.isRequired,
   bg: PropTypes.string.isRequired,
   isAuthenticated: PropTypes.bool,

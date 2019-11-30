@@ -12,6 +12,7 @@ export const LOG_OUT = 'LOG_OUT';
 export const ADD_DOCTOR = 'ADD_DOCTOR';
 export const GET_DOCTORS = 'GET_DOCTORS';
 export const GET_SINGLE_DOCTOR = 'GET_SINGLE_DOCTOR';
+export const DOCTOR_FILTER = 'DOCTOR_FILTER';
 
 export const CREATE_APPOINTMENT = 'CREATE_APPOINTMENT';
 export const GET_APPOINTMENTS = 'GET_APPOINTMENTS';

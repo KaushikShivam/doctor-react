@@ -1,8 +1,14 @@
-import { ADD_DOCTOR, GET_DOCTORS, GET_SINGLE_DOCTOR } from '../actions/types';
+import {
+  ADD_DOCTOR,
+  GET_DOCTORS,
+  GET_SINGLE_DOCTOR,
+  DOCTOR_FILTER
+} from '../actions/types';
 
 const initialState = {
   singleDoctor: null,
-  doctors: []
+  doctors: [],
+  filter: null
 };
 
 const doctor = (state = initialState, action) => {
