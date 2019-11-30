@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Qs from 'qs';
 import { BASE_URL, DOCTORS } from '../../constants';
 import {
   ADD_DOCTOR,
@@ -32,11 +33,26 @@ export const addDoctor = doctorObj => async dispatch => {
   }
 };
 
-export const getDoctors = (filter = null) => async dispatch => {
+export const getDoctors = (filterObj = {}) => async dispatch => {
   try {
-    const response = await axios.get(`${BASE_URL}${DOCTORS}`, {
-      withCredentials: true
-    });
+    console.log(filterObj);
+    let response = await axios.get(
+      `${BASE_URL}${DOCTORS}`,
+      {
+        params: {
+          filter: {
+            ...filterObj
+          }
+        },
+        paramsSerializer: function(params) {
+          return Qs.stringify(params, { arrayFormat: 'brackets' });
+        }
+      },
+      {
+        withCredentials: true
+      }
+    );
+
     const doctors = response.data.data.map(doc => {
       return { id: doc.id, ...doc.attributes };
     });
@@ -63,16 +79,9 @@ export const getSingleDoctor = id => async dispatch => {
   }
 };
 
-// export const addDoctorFilter = (filter = null) => async dispatch => {
-//   try {
-//     const response = await axios.get(`${BASE_URL}${DOCTORS}`, {
-//       filter: {
-//         name: ''
-//       }
-//     },{
-//       withCredentials: true
-//     });
-//   } catch (error) {
-//     dispatch(setAlert(`${error}`, 'danger'));
-//   }
-// }
+export const addDoctorFilter = obj => dispatch => {
+  dispatch({
+    type: DOCTOR_FILTER,
+    payload: obj
+  });
+};
