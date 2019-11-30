@@ -23,8 +23,8 @@ class DoctorSearch extends Component {
             <h1>Search Doctors</h1>
             <p>
               Search by directly typing the doctors name, speciality, symptoms,
-              clinics, hospital, etc. You can also search by health concerns
-              listed below
+              clinics, hospital, etc. You can also search by clicking one of the
+              categories listed below
             </p>
             <div className="container">
               <div className="categories row">
@@ -45,7 +45,8 @@ class DoctorSearch extends Component {
 DoctorSearch.defaultProps = {
   categories: [
     'General Doctor',
-    'Skin & Hair',
+    'Mental Health',
+    'Skin',
     'Child Care',
     'Women Health',
     'Dentist',

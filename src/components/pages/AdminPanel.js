@@ -98,7 +98,7 @@ const AdminPanel = ({ addDoctor }) => {
         <div className="form-field">
           <label htmlFor="fee">Doctor's Fee</label>
           <input
-            type="text"
+            type="number"
             name="fee"
             id="fee"
             value={fee}
@@ -111,7 +111,7 @@ const AdminPanel = ({ addDoctor }) => {
         <div className="form-field">
           <label htmlFor="exp">Doctor's Experience</label>
           <input
-            type="text"
+            type="number"
             name="exp"
             id="exp"
             value={exp}
@@ -124,7 +124,7 @@ const AdminPanel = ({ addDoctor }) => {
         <div className="form-field">
           <label htmlFor="likes">Doctor's Likes</label>
           <input
-            type="text"
+            type="number"
             name="likes"
             id="likes"
             value={likes}
