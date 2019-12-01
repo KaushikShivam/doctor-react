@@ -11,7 +11,7 @@ const DoctorSearch = ({ categories, setFilter, history }) => {
   const [search, setSearch] = useState('');
 
   const handleFilter = (id = null) => {
-    let filterObj = {};
+    const filterObj = {};
     if (search !== '') {
       filterObj.name = search;
     }
@@ -22,12 +22,12 @@ const DoctorSearch = ({ categories, setFilter, history }) => {
     history.push('/doctors');
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     handleFilter();
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
@@ -63,6 +63,7 @@ const DoctorSearch = ({ categories, setFilter, history }) => {
               {categories.map(category => (
                 <div key={category} className="col-6 col-md-4 mb-4">
                   <button
+                    type="submit"
                     id={category}
                     onClick={e => handleClick(e)}
                     className="category-btn"
@@ -91,12 +92,13 @@ DoctorSearch.defaultProps = {
     'ENT',
     'Homeopathy',
     'Ayurveda',
-    'Heart'
-  ]
+    'Heart',
+  ],
 };
 
 DoctorSearch.propTypes = {
-  setFilter: PropTypes.func.isRequired
+  setFilter: PropTypes.func.isRequired,
+  categories: PropTypes.shape([]),
 };
 
 export default connect(null, { setFilter })(DoctorSearch);

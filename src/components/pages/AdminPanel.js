@@ -15,7 +15,7 @@ const AdminPanel = ({ addDoctor }) => {
     exp: '',
     likes: '',
     phone: '',
-    address: ''
+    address: '',
   });
 
   const {
@@ -27,13 +27,12 @@ const AdminPanel = ({ addDoctor }) => {
     exp,
     likes,
     phone,
-    address
+    address,
   } = doctorData;
 
-  const handleChange = e =>
-    setDoctorData({ ...doctorData, [e.target.name]: e.target.value });
+  const handleChange = e => setDoctorData({ ...doctorData, [e.target.name]: e.target.value });
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     addDoctor({ ...doctorData });
   };
@@ -167,7 +166,7 @@ const AdminPanel = ({ addDoctor }) => {
 };
 
 AdminPanel.propTypes = {
-  addDoctor: PropTypes.func.isRequired
+  addDoctor: PropTypes.func.isRequired,
 };
 
 export default connect(null, { addDoctor })(AdminPanel);

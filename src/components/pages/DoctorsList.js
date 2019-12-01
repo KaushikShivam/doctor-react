@@ -45,14 +45,14 @@ const DoctorsList = ({ doctors, getDoctors, filter }) => {
 };
 
 DoctorsList.propTypes = {
-  doctors: PropTypes.array.isRequired,
+  doctors: PropTypes.shape([]).isRequired,
   getDoctors: PropTypes.func.isRequired,
-  filter: PropTypes.object.isRequired
+  filter: PropTypes.shape({}).isRequired,
 };
 
 const mapStateToProps = state => ({
   doctors: state.doctor.doctors,
-  filter: state.doctor.filter
+  filter: state.doctor.filter,
 });
 
 export default connect(mapStateToProps, { getDoctors })(DoctorsList);

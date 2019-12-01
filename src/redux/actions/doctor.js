@@ -5,27 +5,27 @@ import {
   ADD_DOCTOR,
   GET_DOCTORS,
   GET_SINGLE_DOCTOR,
-  DOCTOR_FILTER
+  DOCTOR_FILTER,
 } from './types';
 import { setAlert } from './alert';
 
-export const addDoctor = doctorObj => async dispatch => {
+export const addDoctor = (doctorObj) => async (dispatch) => {
   try {
     const response = await axios.post(
       `${BASE_URL}${DOCTORS}`,
       {
         data: {
-          attributes: { ...doctorObj }
+          attributes: { ...doctorObj },
         }
       },
       {
-        withCredentials: true
+        withCredentials: true,
       }
     );
 
     dispatch({
       type: ADD_DOCTOR,
-      action: response.data
+      action: response.data,
     });
     dispatch(setAlert('Doctor created Successfully', 'success'));
   } catch (error) {
@@ -33,22 +33,22 @@ export const addDoctor = doctorObj => async dispatch => {
   }
 };
 
-export const getDoctors = (filterObj = {}) => async dispatch => {
+export const getDoctors = (filterObj = {}) => async (dispatch) => {
   try {
-    let response = await axios.get(
+    const response = await axios.get(
       `${BASE_URL}${DOCTORS}`,
       {
         params: {
           filter: {
-            ...filterObj
+            ...filterObj,
           }
         },
-        paramsSerializer: function(params) {
+        paramsSerializer: (params) => {
           return Qs.stringify(params, { arrayFormat: 'brackets' });
         }
       },
       {
-        withCredentials: true
+        withCredentials: true,
       }
     );
 
@@ -57,17 +57,17 @@ export const getDoctors = (filterObj = {}) => async dispatch => {
     });
     dispatch({
       type: GET_DOCTORS,
-      payload: doctors
+      payload: doctors,
     });
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
   }
 };
 
-export const getSingleDoctor = id => async dispatch => {
+export const getSingleDoctor = (id) => async (dispatch) => {
   try {
     const response = await axios.get(`${BASE_URL}${DOCTORS}/${id}`, {
-      withCredentials: true
+      withCredentials: true,
     });
     dispatch({
       type: GET_SINGLE_DOCTOR,
@@ -78,9 +78,9 @@ export const getSingleDoctor = id => async dispatch => {
   }
 };
 
-export const setFilter = obj => {
+export const setFilter = (obj) => {
   return {
     type: DOCTOR_FILTER,
-    payload: obj
+    payload: obj,
   };
 };

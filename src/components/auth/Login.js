@@ -8,15 +8,14 @@ import { login } from '../../redux/actions/auth';
 const Login = ({ login, isAuthenticated }) => {
   const [formInfo, setFormInfo] = useState({
     email: '',
-    password: ''
+    password: '',
   });
 
   const { email, password } = formInfo;
 
-  const handleChange = e =>
-    setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
+  const handleChange = e => setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     login({ ...formInfo });
   };
@@ -33,6 +32,7 @@ const Login = ({ login, isAuthenticated }) => {
           <div className="form-field">
             <label htmlFor="email">Your email</label>
             <input
+              id="email"
               type="email"
               name="email"
               placeholder="Enter your email"
@@ -62,11 +62,11 @@ const Login = ({ login, isAuthenticated }) => {
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { login })(Login);

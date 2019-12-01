@@ -9,7 +9,6 @@ import BookingItem from '../BookingItem';
 const Bookings = ({ bookings, getAppointments }) => {
   useEffect(() => {
     getAppointments();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -25,12 +24,12 @@ const Bookings = ({ bookings, getAppointments }) => {
 };
 
 Bookings.propTypes = {
-  bookings: PropTypes.array,
-  getAppointments: PropTypes.func.isRequired
+  bookings: PropTypes.shape([]),
+  getAppointments: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  bookings: state.appointment.appointments
+  bookings: state.appointment.appointments,
 });
 
 export default connect(mapStateToProps, { getAppointments })(Bookings);

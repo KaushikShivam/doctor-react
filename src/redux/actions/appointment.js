@@ -3,39 +3,39 @@ import { CREATE_APPOINTMENT, GET_APPOINTMENTS } from './types';
 import { BASE_URL, APPOINTMENTS } from '../../constants';
 import { setAlert } from './alert';
 
-export const getAppointments = () => async dispatch => {
+export const getAppointments = () => async (dispatch) => {
   try {
     const response = await axios.get(`${BASE_URL}${APPOINTMENTS}`, {
-      withCredentials: true
+      withCredentials: true,
     });
     dispatch({
       type: GET_APPOINTMENTS,
-      payload: response.data.data
+      payload: response.data.data,
     });
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
   }
 };
 
-export const createAppointment = appointmentObj => async dispatch => {
+export const createAppointment = (appointmentObj) => async (dispatch) => {
   try {
     const response = await axios.post(
       `${BASE_URL}${APPOINTMENTS}`,
       {
         data: {
           attributes: {
-            ...appointmentObj
+            ...appointmentObj,
           }
         }
       },
       {
-        withCredentials: true
-      }
+        withCredentials: true,
+      },
     );
 
     dispatch({
       type: CREATE_APPOINTMENT,
-      payload: response.data.data.attributes
+      payload: response.data.data.attributes,
     });
     dispatch(setAlert('Appointment created Successfully', 'success'));
   } catch (error) {

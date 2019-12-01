@@ -16,6 +16,14 @@
   "rules": {
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "eslint-disable camelcase": "off",
+    "react/require-default-props": "off",
+    "radix": "off",
+    "react/prop-types": "off",
+    "import/no-named-as-default": "off",
+    "no-confusing-arrow": "off",
+    "implicit-arrow-linebreak": "off"
   }
 }

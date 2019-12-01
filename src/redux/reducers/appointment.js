@@ -2,7 +2,7 @@ import { GET_APPOINTMENTS, CREATE_APPOINTMENT } from '../actions/types';
 
 const initialState = {
   appointment: null,
-  appointments: []
+  appointments: [],
 };
 
 const appointment = (state = initialState, action) => {

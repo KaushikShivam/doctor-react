@@ -17,7 +17,7 @@ import { getSingleDoctor } from '../../redux/actions/doctor';
 const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
   const [tab, setTab] = useState(0);
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     const id = parseInt(e.target.id.split('-')[1]);
     setTab(id);
   };
@@ -31,13 +31,12 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
       case 2:
         return <DoctorFeedback />;
       default:
-        break;
+        return 0;
     }
   };
 
   useEffect(() => {
     getSingleDoctor(match.params.id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -48,7 +47,7 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
           <div className="detail-card">
             <div className="DoctorDetail-info">
               <h4 className="title text-white font-weight-bold">
-                Dr. {singleDoctor.name}
+                {`Dr. ${singleDoctor.name}`}
               </h4>
               <div className="d-flex justify-content-center align-items-center">
                 <img className="cta" src={callAnswer} alt="Call Answer" />
@@ -57,8 +56,8 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
               </div>
               <p className="category">{singleDoctor.category}</p>
               <div className="d-flex exp">
-                <p>${singleDoctor.fee}</p>
-                <p>{singleDoctor.exp} yrs of experience</p>
+                <p>{`$${singleDoctor.fee}`}</p>
+                <p>{`${singleDoctor.exp} yrs of experience`}</p>
                 <p>
                   <img src={like} alt="likes" />
                   <span>{singleDoctor.likes}</span>
@@ -67,22 +66,24 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
             </div>
           </div>
           <div className="container d-flex tab-content">
-            {console.log(tab)}
             <button
+              type="submit"
               className={`tab flex-grow-1 ${tab === 0 ? 'tab-focus' : ''}`}
               id="tab-0"
               onClick={e => handleClick(e)}
             >
-              Doctor's Info
+              Doctor Info
             </button>
             <button
+              type="submit"
               className={`tab flex-grow-1 ${tab === 1 ? 'tab-focus' : ''}`}
               id="tab-1"
               onClick={e => handleClick(e)}
             >
-              Clinic's Info
+              Clinic Info
             </button>
             <button
+              type="submit"
               className={`tab flex-grow-1 ${tab === 2 ? 'tab-focus' : ''}`}
               id="tab-2"
               onClick={e => handleClick(e)}
@@ -94,7 +95,7 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
           <Link
             to={{
               pathname: `/doctors/${singleDoctor.id}/book`,
-              state: { doctor: singleDoctor }
+              state: { doctor: singleDoctor },
             }}
             className="book-btn"
           >
@@ -108,11 +109,11 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
 
 DoctorDetail.propTypes = {
   getSingleDoctor: PropTypes.func.isRequired,
-  singleDoctor: PropTypes.object
+  singleDoctor: PropTypes.shape({}),
 };
 
 const mapStateToProps = state => ({
-  singleDoctor: state.doctor.singleDoctor
+  singleDoctor: state.doctor.singleDoctor,
 });
 
 export default connect(mapStateToProps, { getSingleDoctor })(DoctorDetail);

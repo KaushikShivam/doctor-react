@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import like from '../assets/images/like.png';
 import share from '../assets/images/share.png';
 
@@ -13,12 +14,12 @@ const Doctor = ({ doctor }) => {
         </div>
         <div className="Doctor-info d-flex justify-content-between w-100">
           <div>
-            <h4 className="Doctor-title">Dr. {name}</h4>
+            <h4 className="Doctor-title">{`Dr. ${name}`}</h4>
             <p className="Doctor-category">{category}</p>
             <p className="Doctor-description">{description}</p>
             <div className="Doctor-exp d-flex">
-              <p>${fee}</p>
-              <p>{exp} yrs of experience</p>
+              <p>{`$${fee}`}</p>
+              <p>{`${exp} yrs of experience`}</p>
               <p>
                 <img src={like} alt="likes" />
                 <span>{likes}</span>
@@ -40,7 +41,7 @@ const Doctor = ({ doctor }) => {
         <Link
           to={{
             pathname: `/doctors/${id}/book`,
-            state: { doctor }
+            state: { doctor },
           }}
           className="btn btn-border flex-grow-1 flex-md-grow-0"
         >
@@ -49,7 +50,7 @@ const Doctor = ({ doctor }) => {
         <Link
           to={{
             pathname: `/doctors/${id}/book`,
-            state: { doctor }
+            state: { doctor },
           }}
           className="btn btn-full flex-grow-1 flex-md-grow-0"
         >
@@ -59,5 +60,9 @@ const Doctor = ({ doctor }) => {
     </div>
   );
 };
+
+Doctor.propTypes = {
+  doctor: PropTypes.shape({}).isRequired,
+}
 
 export default Doctor;

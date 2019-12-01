@@ -2,13 +2,13 @@ import {
   ADD_DOCTOR,
   GET_DOCTORS,
   GET_SINGLE_DOCTOR,
-  DOCTOR_FILTER
+  DOCTOR_FILTER,
 } from '../actions/types';
 
 const initialState = {
   singleDoctor: null,
   doctors: [],
-  filter: {}
+  filter: {},
 };
 
 const doctor = (state = initialState, action) => {

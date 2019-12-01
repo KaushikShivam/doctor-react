@@ -6,23 +6,24 @@ import Navbar from '../layout/Navbar';
 
 import { createAppointment } from '../../redux/actions/appointment';
 
-const BookingForm = props => {
-  const { doctor, date, time } = props.location.state;
+const BookingForm = (props) => {
+  const {location} = props;
+  const { doctor, date, time } = location.state;
   const { createAppointment, user } = props;
 
   const [formData, setFormData] = useState({
     patient: '',
-    reason: ''
+    reason: '',
   });
 
   const { patient, reason } = formData;
 
-  const handleChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = e => {
     e.preventDefault();
     if (!patient || !reason) {
+      // eslint-disable-next-line no-alert
       alert('Please fill in your reason and patient name');
     } else {
       const appointmentInfo = {
@@ -30,7 +31,7 @@ const BookingForm = props => {
         reason,
         date,
         time,
-        doctor_id: doctor.id
+        doctor_id: doctor.id,
       };
       createAppointment(appointmentInfo);
       props.history.push('/confirmed');
@@ -39,9 +40,9 @@ const BookingForm = props => {
 
   return (
     <div className="BookingForm">
-      <Navbar title="Confirm Booking" bg="#e0fdf7" backBtn={`/doctors`} />
+      <Navbar title="Confirm Booking" bg="#e0fdf7" backBtn="/doctors" />
       <div className="detail">
-        <h5 className="title">Dr {doctor.name}</h5>
+        <h5 className="title">{`Dr ${doctor.name}`}</h5>
         <p className="category">{doctor.category}</p>
         <p className="address">{doctor.address}</p>
         <p className="date">{`${date} | ${time}`}</p>
@@ -88,12 +89,12 @@ const BookingForm = props => {
 };
 
 BookingForm.propTypes = {
-  user: PropTypes.object,
-  createAppointment: PropTypes.func.isRequired
+  user: PropTypes.shape({}),
+  createAppointment: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
 });
 
 export default connect(mapStateToProps, { createAppointment })(BookingForm);

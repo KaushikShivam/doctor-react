@@ -5,12 +5,12 @@ import {
   LOGIN_FAIL,
   LOGGED_IN,
   AUTH_ERROR,
-  LOG_OUT
+  LOG_OUT,
 } from '../actions/types';
 
 const initialState = {
   isAuthenticated: null,
-  user: null
+  user: null,
 };
 
 const auth = (state = initialState, action) => {

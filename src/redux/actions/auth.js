@@ -8,27 +8,26 @@ import {
   LOGIN_FAIL,
   LOGGED_IN,
   AUTH_ERROR,
-  LOG_OUT
+  LOG_OUT,
 } from '../actions/types';
 
 import { BASE_URL, REGISTER, STATUS, LOGIN, LOGOUT } from '../../constants';
 
-//Check logged in status
-export const loggedIn = () => async dispatch => {
+export const loggedIn = () => async (dispatch) => {
   try {
     const response = await axios.get(`${BASE_URL}${STATUS}`, {
-      withCredentials: true
+      withCredentials: true,
     });
     if (response.data.logged_in) {
       dispatch({
         type: LOGGED_IN,
-        payload: response.data.user
+        payload: response.data.user,
       });
     }
     localStorage.setItem('isLoggedIn', true);
   } catch (error) {
     dispatch({
-      type: AUTH_ERROR
+      type: AUTH_ERROR,
     });
     dispatch(setAlert(`${error}`, 'danger'));
     localStorage.setItem('isLoggedIn', false);
@@ -40,8 +39,8 @@ export const register = ({
   name,
   email,
   password,
-  password_confirmation
-}) => async dispatch => {
+  password_confirmation,
+}) => async (dispatch) => {
   try {
     const response = await axios.post(
       `${BASE_URL}${REGISTER}`,
@@ -50,11 +49,11 @@ export const register = ({
           name,
           email,
           password,
-          password_confirmation
+          password_confirmation,
         }
       },
       {
-        withCredentials: true
+        withCredentials: true,
       }
     );
 
@@ -71,18 +70,18 @@ export const register = ({
 };
 
 // Login
-export const login = ({ email, password }) => async dispatch => {
+export const login = ({ email, password }) => async (dispatch) => {
   try {
     const response = await axios.post(
       `${BASE_URL}${LOGIN}`,
       {
         user: {
           email,
-          password
+          password,
         }
       },
       {
-        withCredentials: true
+        withCredentials: true,
       }
     );
 
@@ -99,10 +98,10 @@ export const login = ({ email, password }) => async dispatch => {
 };
 
 //Log out
-export const logout = () => async dispatch => {
+export const logout = () => async (dispatch) => {
   try {
     await axios.delete(`${BASE_URL}${LOGOUT}`, {
-      withCredentials: true
+      withCredentials: true,
     });
     dispatch({ type: LOG_OUT });
     localStorage.setItem('isLoggedIn', false);

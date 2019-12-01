@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import { setAlert } from '../../redux/actions/alert';
 import { register } from '../../redux/actions/auth';
-import PropTypes from 'prop-types';
+
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formInfo, setFormInfo] = useState({
     name: '',
     email: '',
     password: '',
-    password_confirmation: ''
+    password_confirmation: '',
   });
 
-  const { name, email, password, password_confirmation } = formInfo;
+  const { 
+    name,
+    email,
+    password,
+    password_confirmation,
+  } = formInfo;
 
   const handleChange = e =>
     setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
@@ -93,11 +98,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);
