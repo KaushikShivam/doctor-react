@@ -11,7 +11,9 @@
 
 ## Description
 
-This is a capstone project I built to graduate at Microverse. Here are the project [reuirements](https://www.notion.so/Final-Capstone-Project-Doctor-appointments-9b345aad940b4f0a951049fcb3da159f)
+This is a capstone project I built to graduate at Microverse. Here are the project [reuirements](https://www.notion.so/Final-Capstone-Project-Doctor-appointments-9b345aad940b4f0a951049fcb3da159f) .
+
+I used Pivotal Tracker as a project management tool to take care of my sprints. Here's a [link](https://www.pivotaltracker.com/n/projects/2421361)
 
 The design is taken from [here](https://www.behance.net/gallery/77208667/MediCo-Medical-mobile-app-UIUX-design)
 Design credit goes to [Vinisha Panjikar](https://www.behance.net/vinishapanjikar)
@@ -46,9 +48,9 @@ You can contact me at:
 ## TODO
 
 - [ ] Refactor Input forms to a component
-- [ ] Refactor Button Component
-- [ ] Add pivotal tracker
+- [x] Refactor Button Component
+- [x] Add pivotal tracker
 - [ ] Refactor Doctor item
-- [ ] Reference the desginer
+- [x] Reference the desginer
 - [ ] Refactor detail component
 - [ ] Add test coverage
