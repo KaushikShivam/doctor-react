@@ -29,6 +29,7 @@ export const loggedIn = () => async dispatch => {
     dispatch({
       type: AUTH_ERROR
     });
+    dispatch(setAlert(`${error}`, 'danger'));
   }
 };
 
@@ -60,7 +61,7 @@ export const register = ({
       dispatch(loggedIn);
     }
   } catch (error) {
-    dispatch(setAlert(`${error}`));
+    dispatch(setAlert(`${error}`, 'danger'));
     dispatch({ type: REGISTER_FAIL });
   }
 };

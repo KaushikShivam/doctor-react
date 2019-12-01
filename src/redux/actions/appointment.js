@@ -37,7 +37,7 @@ export const createAppointment = appointmentObj => async dispatch => {
       type: CREATE_APPOINTMENT,
       payload: response.data.data.attributes
     });
-    dispatch(setAlert('Doctor created Successfully', 'success'));
+    dispatch(setAlert('Appointment created Successfully', 'success'));
   } catch (error) {
     // dispatch(setAlert(`${error}`, 'danger'));
   }
