@@ -25,11 +25,13 @@ export const loggedIn = () => async dispatch => {
         payload: response.data.user
       });
     }
+    localStorage.setItem('isLoggedIn', true);
   } catch (error) {
     dispatch({
       type: AUTH_ERROR
     });
     dispatch(setAlert(`${error}`, 'danger'));
+    localStorage.setItem('isLoggedIn', false);
   }
 };
 
@@ -59,10 +61,12 @@ export const register = ({
     if (response.data.status === 'created') {
       dispatch({ type: REGISTER_SUCCESS, payload: response.data.user });
       dispatch(loggedIn);
+      localStorage.setItem('isLoggedIn', true);
     }
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
     dispatch({ type: REGISTER_FAIL });
+    localStorage.setItem('isLoggedIn', false);
   }
 };
 
@@ -85,10 +89,12 @@ export const login = ({ email, password }) => async dispatch => {
     if (response.data.status === 'created') {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data.user });
       dispatch(loggedIn);
+      localStorage.setItem('isLoggedIn', true);
     }
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
     dispatch({ type: LOGIN_FAIL });
+    localStorage.setItem('isLoggedIn', false);
   }
 };
 
@@ -100,8 +106,10 @@ export const logout = () => async dispatch => {
     });
     if (response.data.logged_out) {
       dispatch({ type: LOG_OUT });
+      localStorage.setItem('isLoggedIn', true);
     }
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
+    localStorage.setItem('isLoggedIn', false);
   }
 };

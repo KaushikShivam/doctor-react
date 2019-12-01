@@ -39,6 +39,6 @@ export const createAppointment = appointmentObj => async dispatch => {
     });
     dispatch(setAlert('Appointment created Successfully', 'success'));
   } catch (error) {
-    // dispatch(setAlert(`${error}`, 'danger'));
+    dispatch(setAlert(`${error}`, 'danger'));
   }
 };

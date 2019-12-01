@@ -37,15 +37,18 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
 
-          {/* Make them private */}
-          <Route exact path="/" component={DoctorSearch} />
-          <Route exact path="/admin" component={AdminPanel} />
-          <Route exact path="/doctors" component={DoctorsList} />
-          <Route exact path="/doctors/:id" component={DoctorDetail} />
-          <Route exact path="/doctors/:id/book" component={DoctorBooking} />
-          <Route exact path="/confirm-booking" component={BookingForm} />
-          <Route exact path="/confirmed" component={BookingConfirm} />
-          <Route exact path="/bookings" component={Bookings} />
+          <PrivateRoute exact path="/" component={DoctorSearch} />
+          <PrivateRoute exact path="/admin" component={AdminPanel} />
+          <PrivateRoute exact path="/doctors" component={DoctorsList} />
+          <PrivateRoute exact path="/doctors/:id" component={DoctorDetail} />
+          <PrivateRoute
+            exact
+            path="/doctors/:id/book"
+            component={DoctorBooking}
+          />
+          <PrivateRoute exact path="/confirm-booking" component={BookingForm} />
+          <PrivateRoute exact path="/confirmed" component={BookingConfirm} />
+          <PrivateRoute exact path="/bookings" component={Bookings} />
         </Switch>
       </Fragment>
     );

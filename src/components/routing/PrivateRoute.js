@@ -3,25 +3,28 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const PrivateRoute = ({ component: Component, auth, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      auth.isAuthenticated === true ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/landing" />
-      )
-    }
-  />
-);
+const PrivateRoute = ({ component: Component, authenticated, ...rest }) => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        authenticated || isLoggedIn ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/landing" />
+        )
+      }
+    />
+  );
+};
 
 PrivateRoute.propTypes = {
-  auth: PropTypes.object.isRequired
+  authenticated: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  authenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps)(PrivateRoute);
