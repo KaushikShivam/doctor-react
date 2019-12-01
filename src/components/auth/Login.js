@@ -44,6 +44,7 @@ const Login = ({ login, isAuthenticated }) => {
           <div className="form-field">
             <label htmlFor="password">Your password</label>
             <input
+              id="password"
               type="password"
               name="password"
               placeholder="Enter your password"

@@ -19,6 +19,6 @@ const ClinicInfo = ({ phone, address }) => (
 ClinicInfo.propTypes = {
   phone: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
-}
+};
 
 export default ClinicInfo;

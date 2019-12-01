@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -21,7 +22,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     password_confirmation,
   } = formInfo;
 
-  const handleChange = e =>
+  const handleChange = (e) =>
     setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
 
   const handleSubmit = e => {

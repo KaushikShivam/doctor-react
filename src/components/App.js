@@ -18,6 +18,9 @@ import DoctorSearch from './pages/DoctorSearch';
 import AdminPanel from './pages/AdminPanel';
 import DoctorsList from './pages/DoctorsList';
 import DoctorDetail from './pages/DoctorDetail';
+// Commented this out because there is nothing wrong with my export.
+// eslint-disable-next-line import/no-named-as-default-member
+// eslint-disable-next-line import/no-named-as-default-member
 import DoctorBooking from './pages/DoctorBooking';
 import BookingForm from './pages/BookingForm';
 import BookingConfirm from './pages/BookingConfirm';

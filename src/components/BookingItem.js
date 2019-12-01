@@ -4,8 +4,12 @@ import PropTypes from 'prop-types';
 import like from '../assets/images/like.png';
 import share from '../assets/images/share.png';
 
-const BookingItem = ({ 
-  patient, reason, date, time, doctor,
+const BookingItem = ({
+  patient,
+  reason,
+  date,
+  time,
+  doctor,
 }) => (
   <div className="BookingItem">
     <div className="d-flex">
@@ -60,6 +64,6 @@ BookingItem.propTypes = {
   date: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   doctor: PropTypes.string.isRequired,
-}
+};
 
 export default BookingItem;

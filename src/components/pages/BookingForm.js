@@ -7,7 +7,7 @@ import Navbar from '../layout/Navbar';
 import { createAppointment } from '../../redux/actions/appointment';
 
 const BookingForm = (props) => {
-  const {location} = props;
+  const { location } = props;
   const { doctor, date, time } = location.state;
   const { createAppointment, user } = props;
 

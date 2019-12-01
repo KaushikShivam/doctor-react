@@ -5,7 +5,16 @@ import like from '../assets/images/like.png';
 import share from '../assets/images/share.png';
 
 const Doctor = ({ doctor }) => {
-  const { id, name, category, description, fee, exp, likes, image } = doctor;
+  const {
+    id,
+    name,
+    category,
+    description,
+    fee,
+    exp,
+    likes,
+    image,
+  } = doctor;
   return (
     <div className="Doctor">
       <div className="d-flex">
@@ -63,6 +72,6 @@ const Doctor = ({ doctor }) => {
 
 Doctor.propTypes = {
   doctor: PropTypes.shape({}).isRequired,
-}
+};
 
 export default Doctor;

@@ -56,7 +56,7 @@ const AdminPanel = ({ addDoctor }) => {
         </div>
 
         <div className="form-field">
-          <label htmlFor="image">Doctor's image</label>
+          <label htmlFor="image">Doctor image</label>
           <input
             type="text"
             name="image"
@@ -95,7 +95,7 @@ const AdminPanel = ({ addDoctor }) => {
         </div>
 
         <div className="form-field">
-          <label htmlFor="fee">Doctor's Fee</label>
+          <label htmlFor="fee">Doctor Fee</label>
           <input
             type="number"
             name="fee"
@@ -108,7 +108,7 @@ const AdminPanel = ({ addDoctor }) => {
         </div>
 
         <div className="form-field">
-          <label htmlFor="exp">Doctor's Experience</label>
+          <label htmlFor="exp">Doctor Experience</label>
           <input
             type="number"
             name="exp"
@@ -121,7 +121,7 @@ const AdminPanel = ({ addDoctor }) => {
         </div>
 
         <div className="form-field">
-          <label htmlFor="likes">Doctor's Likes</label>
+          <label htmlFor="likes">Doctor Likes</label>
           <input
             type="number"
             name="likes"
@@ -134,7 +134,7 @@ const AdminPanel = ({ addDoctor }) => {
         </div>
 
         <div className="form-field">
-          <label htmlFor="phone">Doctor's Phone no.</label>
+          <label htmlFor="phone">Doctor Phone no.</label>
           <input
             type="text"
             name="phone"
@@ -147,7 +147,7 @@ const AdminPanel = ({ addDoctor }) => {
         </div>
 
         <div className="form-field">
-          <label htmlFor="address">Doctor's Address</label>
+          <label htmlFor="address">Doctor Address</label>
           <input
             type="text"
             name="address"

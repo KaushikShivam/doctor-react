@@ -4,6 +4,7 @@
     "es6": true,
     "jest": true
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -22,8 +23,10 @@
     "react/require-default-props": "off",
     "radix": "off",
     "react/prop-types": "off",
-    "import/no-named-as-default": "off",
+    "import/no-named-as-default": 0,
     "no-confusing-arrow": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "react/no-unescaped-entities": "off",
+    "arrow-parens": "off"
   }
 }
