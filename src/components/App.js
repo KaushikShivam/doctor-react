@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './App.css';
 
-import Alert from '../components/Alert';
-import { loggedIn } from './../redux/actions/auth';
+import Alert from './components/Alert';
+import { loggedIn } from '../../redux/actions/auth';
 
 import PrivateRoute from './routing/PrivateRoute';
 
@@ -25,7 +25,8 @@ import Bookings from './pages/Bookings';
 
 class App extends Component {
   componentDidMount() {
-    this.props.loggedIn();
+    const { loggedIn } = this.props;
+    loggedIn();
   }
 
   render() {
@@ -56,7 +57,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  loggedIn: PropTypes.func.isRequired
+  loggedIn: PropTypes.func.isRequired,
 };
 
 export default connect(null, { loggedIn })(App);

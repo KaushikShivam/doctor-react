@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import like from '../assets/images/like.png';
 import share from '../assets/images/share.png';
 
@@ -48,5 +49,9 @@ const BookingItem = ({ patient, reason, date, time, doctor }) => {
     </div>
   );
 };
+
+BookingItem.propTypes = {
+  patient: PropTypes.string.isRequired,
+}
 
 export default BookingItem;
