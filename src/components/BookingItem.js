@@ -52,6 +52,10 @@ const BookingItem = ({ patient, reason, date, time, doctor }) => {
 
 BookingItem.propTypes = {
   patient: PropTypes.string.isRequired,
+  reason: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  doctor: PropTypes.string.isRequired,
 }
 
 export default BookingItem;
