@@ -12,10 +12,10 @@ const DoctorSearch = ({ categories, setFilter, history }) => {
 
   const handleFilter = (id = null) => {
     let filterObj = {};
-    if (search != '') {
+    if (search !== '') {
       filterObj.name = search;
     }
-    if (id != 'All' && id) {
+    if (id !== 'All' && id) {
       filterObj.category = id;
     }
     setFilter(filterObj);

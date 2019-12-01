@@ -35,7 +35,6 @@ export const addDoctor = doctorObj => async dispatch => {
 
 export const getDoctors = (filterObj = {}) => async dispatch => {
   try {
-    console.log(filterObj);
     let response = await axios.get(
       `${BASE_URL}${DOCTORS}`,
       {
