@@ -12,7 +12,6 @@ import FilterPop from '../FilterPop';
 const DoctorsList = ({ doctors, getDoctors, filter }) => {
   useEffect(() => {
     getDoctors(filter);
-    console.log(filter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 

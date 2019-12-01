@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -7,7 +7,11 @@ import { logout } from '../../redux/actions/auth';
 
 import leftArrow from '../../assets/images/left-arrow.png';
 
-const Navbar = ({ backBtn, title, bg, isAuthenticated, logout }) => {
+const Navbar = ({ backBtn, title, bg, isAuthenticated, logout, history }) => {
+  const handleClick = () => {
+    logout();
+    history.push('/landing');
+  };
   return (
     <div
       className="Navbar d-flex justify-content-between"
@@ -24,7 +28,7 @@ const Navbar = ({ backBtn, title, bg, isAuthenticated, logout }) => {
       {isAuthenticated && (
         <div className="d-flex">
           <Link to="/bookings">My Bookings</Link>
-          <button onClick={logout}>Logout</button>
+          <button onClick={handleClick}>Logout</button>
         </div>
       )}
     </div>
@@ -43,4 +47,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default withRouter(connect(mapStateToProps, { logout })(Navbar));

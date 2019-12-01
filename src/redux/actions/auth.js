@@ -101,13 +101,11 @@ export const login = ({ email, password }) => async dispatch => {
 //Log out
 export const logout = () => async dispatch => {
   try {
-    const response = await axios.delete(`${BASE_URL}${LOGOUT}`, {
+    await axios.delete(`${BASE_URL}${LOGOUT}`, {
       withCredentials: true
     });
-    if (response.data.logged_out) {
-      dispatch({ type: LOG_OUT });
-      localStorage.setItem('isLoggedIn', true);
-    }
+    dispatch({ type: LOG_OUT });
+    localStorage.setItem('isLoggedIn', false);
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
     localStorage.setItem('isLoggedIn', false);
