@@ -45,5 +45,5 @@ You can contact me at:
 - [ ] Add pivotal tracker
 - [ ] Refactor Doctor item
 - [ ] Reference the desginer
-- [ ] Check propTypes for all elements
 - [ ] Refactor detail component
+- [ ] Add test coverage

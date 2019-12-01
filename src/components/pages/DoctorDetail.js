@@ -15,11 +15,11 @@ import callAnswer from '../../assets/images/call-answer.png';
 import { getSingleDoctor } from '../../redux/actions/doctor';
 
 const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
-  const [tab, setTab] = useState({ current: 0 });
+  const [tab, setTab] = useState(0);
 
   const handleClick = e => {
     const id = parseInt(e.target.id.split('-')[1]);
-    setTab({ current: id });
+    setTab(id);
   };
 
   const renderTab = ({ phone, address }) => {
@@ -39,9 +39,6 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
     getSingleDoctor(match.params.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  if (singleDoctor) {
-  }
 
   return (
     <div className="DoctorDetail">
@@ -70,6 +67,7 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
             </div>
           </div>
           <div className="container d-flex tab-content">
+            {console.log(tab)}
             <button
               className={`tab flex-grow-1 ${tab === 0 ? 'tab-focus' : ''}`}
               id="tab-0"
