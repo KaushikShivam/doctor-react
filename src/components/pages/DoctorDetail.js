@@ -23,7 +23,7 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
   };
 
   const renderTab = ({ phone, address }) => {
-    switch (tab.current) {
+    switch (tab) {
       case 0:
         return <DoctorInfo />;
       case 1:

@@ -29,6 +29,9 @@ git clone https://github.com/KaushikShivam/doctor-react
 
 This project uses Rails API for the backend. Here's the [repo link](https://github.com/KaushikShivam/doctor_api)
 
+The design is take from [here](https://www.behance.net/gallery/77208667/MediCo-Medical-mobile-app-UIUX-design)
+Design credit goes to [Vinisha Panjikar](https://www.behance.net/vinishapanjikar)
+
 ## Contact
 
 You can contact me at:
