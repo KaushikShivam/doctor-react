@@ -1,4 +1,4 @@
-# [Doctorly](https://raw.githack.com/KaushikShivam/youtube_clone/feature-navigation/index.html)
+# [Doctorly](https://doctorly-official.herokuapp.com/)
 
 ![Doctorly](screenshot.png)
 
@@ -12,6 +12,11 @@
 ## Description
 
 This is a capstone project I built to graduate at Microverse. Here are the project [reuirements](https://www.notion.so/Final-Capstone-Project-Doctor-appointments-9b345aad940b4f0a951049fcb3da159f)
+
+The design is taken from [here](https://www.behance.net/gallery/77208667/MediCo-Medical-mobile-app-UIUX-design)
+Design credit goes to [Vinisha Panjikar](https://www.behance.net/vinishapanjikar)
+
+[Live Link](https://doctorly-official.herokuapp.com/)
 
 ## Installation
 
@@ -27,10 +32,7 @@ git clone https://github.com/KaushikShivam/doctor-react
 
 ## Backend
 
-This project uses Rails API for the backend. Here's the [repo link](https://github.com/KaushikShivam/doctor_api)
-
-The design is take from [here](https://www.behance.net/gallery/77208667/MediCo-Medical-mobile-app-UIUX-design)
-Design credit goes to [Vinisha Panjikar](https://www.behance.net/vinishapanjikar)
+This project uses Rails API for the backend. Here's the [link for the repo](https://github.com/KaushikShivam/doctor_api)
 
 ## Contact
 
