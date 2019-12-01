@@ -57,12 +57,14 @@ class FilterPop extends Component {
             />
           </div>
         </div>
-        <button className="btn btn-lg btn-primary mr-3" type="submit">
-          Apply Filter
-        </button>
-        <button className="btn btn-lg btn-danger" type="reset">
-          Reset All
-        </button>
+        <div className="mt-2">
+          <button className="btn btn-lg btn-primary mr-3" type="submit">
+            Apply Filter
+          </button>
+          <button className="btn btn-lg btn-danger" type="reset">
+            Reset All
+          </button>
+        </div>
       </form>
     );
   }

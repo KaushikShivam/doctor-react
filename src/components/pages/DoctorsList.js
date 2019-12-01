@@ -17,16 +17,18 @@ const DoctorsList = ({ doctors, getDoctors, filter }) => {
 
   const [filterOption, setFilterOpen] = useState(false);
 
+  const handleClick = () => setFilterOpen(!filterOption);
+
   return (
     <div className="DoctorList">
       <Navbar title="Doctors" bg="#e0fdf7" backBtn="/" />
       <div className="filter">
-        <button type="submit">
+        <button type="submit" onClick={handleClick}>
           <img src={filterImg} alt="filter button" />
         </button>
       </div>
       <div className="container">
-        <FilterPop />
+        {filterOption && <FilterPop />}
         <h4 className="result-title">
           {doctors.length === 0
             ? 'There are No doctors for this search'
