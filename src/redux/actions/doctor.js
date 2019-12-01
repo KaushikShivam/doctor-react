@@ -43,9 +43,7 @@ export const getDoctors = (filterObj = {}) => async (dispatch) => {
             ...filterObj,
           },
         },
-        paramsSerializer: (params) => {
-          return Qs.stringify(params, { arrayFormat: 'brackets' });
-        },
+        paramsSerializer: (params) => Qs.stringify(params, { arrayFormat: 'brackets' }),
       },
       {
         withCredentials: true,

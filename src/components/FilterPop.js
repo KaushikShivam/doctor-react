@@ -50,7 +50,7 @@ class FilterPop extends Component {
 
   render() {
     const { categories } = this.props;
-    const { 
+    const {
       name,
       category,
       fee,
@@ -174,7 +174,7 @@ FilterPop.defaultProps = {
     'Homeopathy',
     'Ayurveda',
     'Heart',
-  ]
+  ],
 };
 
 FilterPop.propTypes = {
