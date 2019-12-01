@@ -15,9 +15,10 @@ class DoctorBooking extends Component {
     this.state = {
       today: new Date(),
       selectedDate: new Date(),
-      time: null
+      time: null,
     };
   }
+
   handleDateSelect = date => {
     this.setState({ selectedDate: date });
   };
@@ -28,24 +29,27 @@ class DoctorBooking extends Component {
 
   handleSubmit = () => {
     const { time, selectedDate } = this.state;
-    const { doctor } = this.props.location.state;
+    const { location, history } = this.props;
+    const { doctor } = location.state;
     if (!time || !selectedDate) {
+      // eslint-disable-next-line no-alert
       alert('Selecting date and time is manadatory');
     } else {
-      this.props.history.push({
+      history.push({
         pathname: '/confirm-booking',
         state: {
           doctor,
           date: moment(selectedDate).format('MMM Do, YYYY'),
-          time: time.format('HH:mm')
-        }
+          time: time.format('HH:mm'),
+        },
       });
     }
   };
 
   render() {
     const { today } = this.state;
-    const { doctor } = this.props.location.state;
+    const { location } = this.props;
+    const { doctor } = location.state;
     return (
       <div className="DoctorBooking">
         <Navbar
@@ -63,7 +67,7 @@ class DoctorBooking extends Component {
                 .minute(0)}
               className="time-picker"
               onChange={this.handleTimeChange}
-              format={'h:mm a'}
+              format="h:mm a"
               use12Hours
               inputReadOnly
             />
@@ -73,17 +77,17 @@ class DoctorBooking extends Component {
               selectionColor: '#47b7a7',
               textColor: {
                 default: '#333',
-                active: '#FFF'
+                active: '#FFF',
               },
               weekdayColor: '#266a61',
               headerColor: '#47b7a7',
               floatingNav: {
                 background: '#266a61',
                 color: '#FFF',
-                chevron: '#FFF'
-              }
+                chevron: '#FFF',
+              },
             }}
-            width={'100%'}
+            width="100%"
             height={300}
             selected={today}
             disabledDays={[0, 6]}
@@ -91,15 +95,15 @@ class DoctorBooking extends Component {
           />
 
           <div className="detail">
-            <button onClick={this.handleSubmit} className="book-btn">
+            <button type="submit" onClick={this.handleSubmit} className="book-btn">
               Book Appointment
             </button>
-            <h5 className="title">Dr {doctor.name}</h5>
+            <h5 className="title">{`Dr ${doctor.name}`}</h5>
             <p className="category">{doctor.category}</p>
             <p className="address">{doctor.address}</p>
             <div className="d-flex exp">
-              <p>${doctor.fee}</p>
-              <p>{doctor.exp} yrs of experience</p>
+              <p>{`$${doctor.fee}`}</p>
+              <p>{`${doctor.exp} yrs of experience`}</p>
               <p>
                 <img src={like} alt="likes" />
                 <span>{doctor.likes}</span>

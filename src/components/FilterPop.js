@@ -11,7 +11,7 @@ class FilterPop extends Component {
       category: '',
       fee: '',
       exp: '',
-      likes: ''
+      likes: '',
     };
   }
 
@@ -38,13 +38,25 @@ class FilterPop extends Component {
   handleReset = e => {
     const { setFilter } = this.props;
     e.preventDefault();
-    this.setState({ name: '', category: '', fee: '', exp: '', likes: '' });
+    this.setState({
+      name: '',
+      category: '',
+      fee: '',
+      exp: '',
+      likes: '',
+    });
     setFilter({});
   };
 
   render() {
     const { categories } = this.props;
-    const { name, category, fee, exp, likes } = this.state;
+    const { 
+      name,
+      category,
+      fee,
+      exp,
+      likes,
+    } = this.state;
     return (
       <form className="mb-5">
         <div className="form-row">
@@ -139,7 +151,7 @@ class FilterPop extends Component {
           <button
             onClick={this.handleReset}
             className="btn btn-lg btn-danger"
-            type="reset"
+            type="button"
           >
             Reset All
           </button>
@@ -161,12 +173,13 @@ FilterPop.defaultProps = {
     'ENT',
     'Homeopathy',
     'Ayurveda',
-    'Heart'
+    'Heart',
   ]
 };
 
 FilterPop.propTypes = {
-  setFilter: PropTypes.func.isRequired
+  setFilter: PropTypes.func.isRequired,
+  categories: PropTypes.array,
 };
 
 export default connect(null, { setFilter })(FilterPop);

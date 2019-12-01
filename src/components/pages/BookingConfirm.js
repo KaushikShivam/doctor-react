@@ -28,7 +28,7 @@ const BookingConfirm = ({ appointment }) => (
   </div>
 );
 BookingConfirm.propTypes = {
-  appointment: PropTypes.shape({}),
+  appointment: PropTypes.object,
 };
 
 const mapStateToProps = state => ({

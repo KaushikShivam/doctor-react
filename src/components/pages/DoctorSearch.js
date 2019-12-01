@@ -98,7 +98,7 @@ DoctorSearch.defaultProps = {
 
 DoctorSearch.propTypes = {
   setFilter: PropTypes.func.isRequired,
-  categories: PropTypes.shape([]),
+  categories: PropTypes.array,
 };
 
 export default connect(null, { setFilter })(DoctorSearch);

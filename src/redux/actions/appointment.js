@@ -25,8 +25,8 @@ export const createAppointment = (appointmentObj) => async (dispatch) => {
         data: {
           attributes: {
             ...appointmentObj,
-          }
-        }
+          },
+        },
       },
       {
         withCredentials: true,

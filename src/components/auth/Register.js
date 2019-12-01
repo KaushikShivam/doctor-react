@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -15,7 +14,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     password_confirmation: '',
   });
 
-  const { 
+  const {
     name,
     email,
     password,

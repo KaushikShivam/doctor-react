@@ -9,9 +9,15 @@ import {
   LOGGED_IN,
   AUTH_ERROR,
   LOG_OUT,
-} from '../actions/types';
+} from './types';
 
-import { BASE_URL, REGISTER, STATUS, LOGIN, LOGOUT } from '../../constants';
+import {
+  BASE_URL,
+  REGISTER,
+  STATUS,
+  LOGIN,
+  LOGOUT,
+} from '../../constants';
 
 export const loggedIn = () => async (dispatch) => {
   try {
@@ -50,11 +56,11 @@ export const register = ({
           email,
           password,
           password_confirmation,
-        }
+        },
       },
       {
         withCredentials: true,
-      }
+      },
     );
 
     if (response.data.status === 'created') {
@@ -78,11 +84,11 @@ export const login = ({ email, password }) => async (dispatch) => {
         user: {
           email,
           password,
-        }
+        },
       },
       {
         withCredentials: true,
-      }
+      },
     );
 
     if (response.data.status === 'created') {
@@ -97,7 +103,6 @@ export const login = ({ email, password }) => async (dispatch) => {
   }
 };
 
-//Log out
 export const logout = () => async (dispatch) => {
   try {
     await axios.delete(`${BASE_URL}${LOGOUT}`, {

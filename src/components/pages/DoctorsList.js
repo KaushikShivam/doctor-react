@@ -45,9 +45,9 @@ const DoctorsList = ({ doctors, getDoctors, filter }) => {
 };
 
 DoctorsList.propTypes = {
-  doctors: PropTypes.shape([]).isRequired,
+  doctors: PropTypes.array.isRequired,
   getDoctors: PropTypes.func.isRequired,
-  filter: PropTypes.shape({}).isRequired,
+  filter: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({

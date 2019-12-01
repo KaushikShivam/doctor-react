@@ -89,7 +89,7 @@ const BookingForm = (props) => {
 };
 
 BookingForm.propTypes = {
-  user: PropTypes.shape({}),
+  user: PropTypes.object,
   createAppointment: PropTypes.func,
 };
 

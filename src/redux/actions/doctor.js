@@ -16,11 +16,11 @@ export const addDoctor = (doctorObj) => async (dispatch) => {
       {
         data: {
           attributes: { ...doctorObj },
-        }
+        },
       },
       {
         withCredentials: true,
-      }
+      },
     );
 
     dispatch({
@@ -41,20 +41,18 @@ export const getDoctors = (filterObj = {}) => async (dispatch) => {
         params: {
           filter: {
             ...filterObj,
-          }
+          },
         },
         paramsSerializer: (params) => {
           return Qs.stringify(params, { arrayFormat: 'brackets' });
-        }
+        },
       },
       {
         withCredentials: true,
-      }
+      },
     );
 
-    const doctors = response.data.data.map(doc => {
-      return { id: doc.id, ...doc.attributes };
-    });
+    const doctors = response.data.data.map(doc => ({ id: doc.id, ...doc.attributes }));
     dispatch({
       type: GET_DOCTORS,
       payload: doctors,
@@ -71,16 +69,14 @@ export const getSingleDoctor = (id) => async (dispatch) => {
     });
     dispatch({
       type: GET_SINGLE_DOCTOR,
-      payload: { ...response.data.data.attributes, id: response.data.data.id }
+      payload: { ...response.data.data.attributes, id: response.data.data.id },
     });
   } catch (error) {
     dispatch(setAlert(`${error}`, 'danger'));
   }
 };
 
-export const setFilter = (obj) => {
-  return {
-    type: DOCTOR_FILTER,
-    payload: obj,
-  };
-};
+export const setFilter = (obj) => ({
+  type: DOCTOR_FILTER,
+  payload: obj,
+});

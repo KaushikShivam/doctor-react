@@ -24,7 +24,7 @@ const Bookings = ({ bookings, getAppointments }) => {
 };
 
 Bookings.propTypes = {
-  bookings: PropTypes.shape([]),
+  bookings: PropTypes.array,
   getAppointments: PropTypes.func.isRequired,
 };
 

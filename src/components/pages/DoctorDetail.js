@@ -109,7 +109,7 @@ const DoctorDetail = ({ match, singleDoctor, getSingleDoctor }) => {
 
 DoctorDetail.propTypes = {
   getSingleDoctor: PropTypes.func.isRequired,
-  singleDoctor: PropTypes.shape({}),
+  singleDoctor: PropTypes.object,
 };
 
 const mapStateToProps = state => ({

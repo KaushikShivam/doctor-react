@@ -71,7 +71,7 @@ const Doctor = ({ doctor }) => {
 };
 
 Doctor.propTypes = {
-  doctor: PropTypes.shape({}).isRequired,
+  doctor: PropTypes.object.isRequired,
 };
 
 export default Doctor;
